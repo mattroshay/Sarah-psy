@@ -31,7 +31,7 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} className={`${playfair.variable} ${inter.variable}`}>
-      <body>{children}</body>
+      <body className="flex flex-col min-h-screen">{children}</body>
     </html>
   )
 }
