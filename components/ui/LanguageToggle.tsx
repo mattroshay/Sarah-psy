@@ -30,15 +30,31 @@ export function LanguageToggle({ currentLocale, label, className }: LanguageTogg
   const targetLocale: Locale = currentLocale === 'en' ? 'fr' : 'en'
 
   return (
-    <button
-      onClick={handleSwitch}
-      className={cn(
-        'text-sm font-medium text-charcoal hover:text-sage transition-colors px-3 py-1.5 rounded-md hover:bg-sage-light',
-        className
-      )}
-      aria-label={`Switch to ${targetLocale === 'en' ? label.en : label.fr}`}
+    <div
+      className={cn('flex items-center border border-border rounded-md overflow-hidden text-sm font-medium', className)}
+      role="group"
+      aria-label="Language"
     >
-      {targetLocale === 'en' ? 'EN' : 'FR'}
-    </button>
+      {(['en', 'fr'] as const).map((loc) => {
+        const isActive = loc === currentLocale
+        return (
+          <button
+            key={loc}
+            onClick={isActive ? undefined : handleSwitch}
+            disabled={isActive}
+            className={cn(
+              'px-3 py-1.5 transition-colors',
+              isActive
+                ? 'bg-sage text-white cursor-default'
+                : 'text-muted hover:text-charcoal hover:bg-sage-light'
+            )}
+            aria-label={isActive ? `Current language: ${label[loc]}` : `Switch to ${label[loc]}`}
+            aria-pressed={isActive}
+          >
+            {loc.toUpperCase()}
+          </button>
+        )
+      })}
+    </div>
   )
 }

@@ -21,15 +21,16 @@ export function Navigation({ locale, nav, calendlyUrl }: NavigationProps) {
   const pathname = usePathname()
 
   const links = [
-    { key: 'about', label: nav.about, segment: getPublicSlug(locale, 'about') },
-    { key: 'how-i-help', label: nav.howIHelp, segment: getPublicSlug(locale, 'how-i-help') },
-    { key: 'faq', label: nav.faq, segment: 'faq' },
-    { key: 'blog', label: nav.blog, segment: 'blog' },
-    { key: 'contact', label: nav.contact, segment: 'contact' },
+    { key: 'home', label: nav.home, href: `/${locale}` },
+    { key: 'about', label: nav.about, href: `/${locale}/${getPublicSlug(locale, 'about')}` },
+    { key: 'how-i-help', label: nav.howIHelp, href: `/${locale}/${getPublicSlug(locale, 'how-i-help')}` },
+    { key: 'faq', label: nav.faq, href: `/${locale}/faq` },
+    { key: 'blog', label: nav.blog, href: `/${locale}/blog` },
+    { key: 'contact', label: nav.contact, href: `/${locale}/contact` },
   ]
 
-  const isActive = (segment: string) =>
-    pathname.includes(`/${segment}`)
+  const isActive = (key: string, href: string) =>
+    key === 'home' ? pathname === href : pathname.startsWith(href)
 
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-border">
@@ -51,17 +52,17 @@ export function Navigation({ locale, nav, calendlyUrl }: NavigationProps) {
 
         {/* Desktop nav */}
         <ul className="hidden md:flex items-center gap-1" role="list">
-          {links.map(({ key, label, segment }) => (
+          {links.map(({ key, label, href }) => (
             <li key={key}>
               <a
-                href={`/${locale}/${segment}`}
+                href={href}
                 className={cn(
                   'px-3 py-2 rounded-md text-sm font-medium transition-colors',
-                  isActive(segment)
+                  isActive(key, href)
                     ? 'text-sage bg-sage-light'
                     : 'text-charcoal hover:text-sage hover:bg-sage-light'
                 )}
-                aria-current={isActive(segment) ? 'page' : undefined}
+                aria-current={isActive(key, href) ? 'page' : undefined}
               >
                 {label}
               </a>
@@ -84,52 +85,54 @@ export function Navigation({ locale, nav, calendlyUrl }: NavigationProps) {
           </Button>
         </div>
 
-        {/* Mobile hamburger */}
-        <button
-          className="md:hidden p-2 text-charcoal hover:text-sage"
-          onClick={() => setMenuOpen((o) => !o)}
-          aria-expanded={menuOpen}
-          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
-        >
-          {menuOpen ? (
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M18 6L6 18M6 6l12 12" strokeLinecap="round" />
-            </svg>
-          ) : (
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M3 12h18M3 6h18M3 18h18" strokeLinecap="round" />
-            </svg>
-          )}
-        </button>
+        {/* Mobile: language toggle + hamburger */}
+        <div className="flex md:hidden items-center gap-2">
+          <LanguageToggle
+            currentLocale={locale}
+            label={{ en: 'English', fr: 'Français' }}
+          />
+          <button
+            className="p-2 text-charcoal hover:text-sage"
+            onClick={() => setMenuOpen((o) => !o)}
+            aria-expanded={menuOpen}
+            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+          >
+            {menuOpen ? (
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M18 6L6 18M6 6l12 12" strokeLinecap="round" />
+              </svg>
+            ) : (
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M3 12h18M3 6h18M3 18h18" strokeLinecap="round" />
+              </svg>
+            )}
+          </button>
+        </div>
       </nav>
 
       {/* Mobile drawer */}
       {menuOpen && (
         <div className="md:hidden border-t border-border bg-white px-4 pb-4">
           <ul className="flex flex-col gap-1 pt-3" role="list">
-            {links.map(({ key, label, segment }) => (
+            {links.map(({ key, label, href }) => (
               <li key={key}>
                 <a
-                  href={`/${locale}/${segment}`}
+                  href={href}
                   onClick={() => setMenuOpen(false)}
                   className={cn(
                     'block px-4 py-3 rounded-md text-sm font-medium transition-colors',
-                    isActive(segment)
+                    isActive(key, href)
                       ? 'text-sage bg-sage-light'
                       : 'text-charcoal hover:text-sage hover:bg-sage-light'
                   )}
-                  aria-current={isActive(segment) ? 'page' : undefined}
+                  aria-current={isActive(key, href) ? 'page' : undefined}
                 >
                   {label}
                 </a>
               </li>
             ))}
           </ul>
-          <div className="flex items-center gap-3 pt-4 border-t border-border mt-3">
-            <LanguageToggle
-              currentLocale={locale}
-              label={{ en: 'English', fr: 'Français' }}
-            />
+          <div className="pt-4 border-t border-border mt-3">
             <Button
               href={calendlyUrl ?? '#contact'}
               variant="primary"

@@ -5,6 +5,7 @@ import { getDictionary } from '@/lib/i18n'
 import { buildMetadata } from '@/lib/metadata'
 import { PageHeader } from '@/components/sections/PageHeader'
 import { BlogIndex } from '@/components/sections/BlogIndex'
+import { getAllPosts } from '@/lib/blog'
 
 type Props = { params: Promise<{ locale: string }> }
 
@@ -34,8 +35,7 @@ export default async function BlogIndexPage({ params }: Props) {
   const dict = await getDictionary(locale as Locale)
   const { blog } = dict
 
-  // Posts are loaded in Phase 4 (lib/blog.ts). Empty array renders "coming soon" placeholder.
-  const posts: import('@/lib/types').PostMeta[] = []
+  const posts = await getAllPosts(locale as Locale)
 
   return (
     <>

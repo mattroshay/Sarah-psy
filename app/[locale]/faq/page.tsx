@@ -70,7 +70,7 @@ export default async function FaqPage({ params }: Props) {
           body={cta.bookCallBody}
           buttonLabel={cta.bookCallButton}
           buttonHref={calendlyUrl}
-          variant="terra"
+          variant="sage"
         />
       </div>
     </>

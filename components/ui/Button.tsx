@@ -1,6 +1,6 @@
 import { cn } from '@/lib/cn'
 
-type Variant = 'primary' | 'secondary' | 'outline'
+type Variant = 'primary' | 'secondary' | 'outline' | 'white'
 type Size = 'sm' | 'md' | 'lg'
 
 interface BaseProps {
@@ -25,6 +25,8 @@ const variants: Record<Variant, string> = {
     'bg-terra text-white hover:bg-[#a85f40] focus-visible:outline-terra',
   outline:
     'border border-sage text-sage bg-transparent hover:bg-sage-light focus-visible:outline-sage',
+  white:
+    'bg-white text-sage hover:bg-sage-light focus-visible:outline-white',
 }
 
 const sizes: Record<Size, string> = {

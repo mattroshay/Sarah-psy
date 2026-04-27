@@ -9,7 +9,7 @@ function detectLocale(request: NextRequest): Locale {
   return DEFAULT_LOCALE
 }
 
-export function proxy(request: NextRequest) {
+export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
 
   // Determine if the path already has a locale prefix

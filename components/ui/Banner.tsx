@@ -42,7 +42,7 @@ export function Banner({
       )}
       <Button
         href={buttonHref}
-        variant={variant === 'warm' ? 'primary' : 'outline'}
+        variant={variant === 'warm' ? 'primary' : 'white'}
         size="lg"
       >
         {buttonLabel}
