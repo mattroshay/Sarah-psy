@@ -31,12 +31,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   })
 }
 
-const AUDIENCE_ICONS: Record<string, string> = {
-  expats: '🧳',
-  professionals: '💼',
-  parents: '🤱',
-}
-
 export default async function HomePage({ params }: Props) {
   const { locale } = await params
   if (!LOCALES.includes(locale as Locale)) notFound()
@@ -65,6 +59,14 @@ export default async function HomePage({ params }: Props) {
         imageAlt="Sarah Cousin Roshay — bilingual CBT therapist"
       />
 
+      {/* Intro block */}
+      <section className="max-w-3xl mx-auto px-4 sm:px-6 py-16 text-center">
+        <h2 className="font-heading text-2xl md:text-3xl font-bold text-charcoal mb-5 leading-tight">
+          {home.introHeading}
+        </h2>
+        <p className="text-lg text-charcoal leading-relaxed">{home.introBody}</p>
+      </section>
+
       {/* About strip */}
       <section className="bg-sage-light py-16">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 grid md:grid-cols-2 gap-10 items-center">
@@ -75,14 +77,11 @@ export default async function HomePage({ params }: Props) {
             <p className="text-charcoal leading-relaxed">{home.aboutStripBody}</p>
           </div>
           <div className="grid grid-cols-2 gap-3">
-            {[
-              { icon: '🎓', label: locale === 'en' ? 'CBT Certified' : 'Certifiée TCC' },
-              { icon: '🌍', label: locale === 'en' ? 'Lived Expat Experience' : 'Expérience vécue' },
-              { icon: '🏢', label: locale === 'en' ? '15 Years Corporate' : '15 ans en entreprise' },
-              { icon: '👶', label: locale === 'en' ? 'Parenting Certified' : 'Certifiée parentalité' },
-            ].map(({ icon, label }) => (
-              <div key={label} className="bg-white rounded-xl p-4 flex items-center gap-3 border border-border">
-                <span className="text-2xl">{icon}</span>
+            {home.credentialBadges.map((label) => (
+              <div
+                key={label}
+                className="bg-white rounded-xl p-4 flex items-center justify-center text-center border border-border"
+              >
                 <span className="text-sm font-medium text-charcoal">{label}</span>
               </div>
             ))}
@@ -103,7 +102,6 @@ export default async function HomePage({ params }: Props) {
               className="block group"
             >
               <Card className="h-full flex flex-col gap-3 group-hover:border-sage transition-colors">
-                <span className="text-3xl">{AUDIENCE_ICONS[key]}</span>
                 <h3 className="font-heading text-base font-bold text-charcoal group-hover:text-sage transition-colors">
                   {home.audience[key].label}
                 </h3>

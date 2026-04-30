@@ -24,6 +24,7 @@ export function Navigation({ locale, nav, calendlyUrl }: NavigationProps) {
     { key: 'home', label: nav.home, href: `/${locale}` },
     { key: 'about', label: nav.about, href: `/${locale}/${getPublicSlug(locale, 'about')}` },
     { key: 'how-i-help', label: nav.howIHelp, href: `/${locale}/${getPublicSlug(locale, 'how-i-help')}` },
+    { key: 'my-specialties', label: nav.mySpecialties, href: `/${locale}/${getPublicSlug(locale, 'my-specialties')}` },
     { key: 'faq', label: nav.faq, href: `/${locale}/faq` },
     { key: 'blog', label: nav.blog, href: `/${locale}/blog` },
     { key: 'contact', label: nav.contact, href: `/${locale}/contact` },

@@ -2,6 +2,7 @@ export interface NavDict {
   home: string
   about: string
   howIHelp: string
+  mySpecialties: string
   faq: string
   blog: string
   contact: string
@@ -13,8 +14,11 @@ export interface HomeDict {
   heroSubhead: string
   heroPrimary: string
   heroSecondary: string
+  introHeading: string
+  introBody: string
   aboutStripHeading: string
   aboutStripBody: string
+  credentialBadges: string[]
   audienceHeading: string
   audience: {
     expats: { label: string; description: string }
@@ -32,11 +36,46 @@ export interface AboutDict {
   pageTitle: string
   pageSubtitle: string
   storyHeading: string
+  storyParagraphs: string[]
   credentialsHeading: string
-  approachHeading: string
+  credentials: string[]
 }
 
 export interface HowIHelpDict {
+  pageTitle: string
+  pageSubtitle: string
+  intro: string
+  cbt: {
+    heading: string
+    paragraphs: string[]
+    helpsYouLead: string
+    helpsYou: string[]
+    closing: string
+  }
+  whoIWorkWith: {
+    heading: string
+    lead: string
+    suitableLead: string
+    suitable: string[]
+    closing: string
+  }
+  commonIssues: {
+    heading: string
+    lead: string
+    items: string[]
+    closing: string
+  }
+  howItWorks: {
+    heading: string
+    lead: string
+    firstSession: { heading: string; lead: string; items: string[] }
+    ongoing: { heading: string; lead: string; items: string[]; closing: string }
+    sessionLength: string
+    fee: string
+  }
+}
+
+export interface MySpecialtiesDict {
   pageTitle: string
   pageSubtitle: string
   services: {
@@ -107,6 +146,7 @@ export interface Dictionary {
   home: HomeDict
   about: AboutDict
   howIHelp: HowIHelpDict
+  mySpecialties: MySpecialtiesDict
   faq: FaqDict
   blog: BlogDict
   contact: ContactDict

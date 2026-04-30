@@ -5,41 +5,51 @@ const en: Dictionary = {
     home: "Home",
     about: "About",
     howIHelp: "How I Help",
+    mySpecialties: "My Specialties",
     faq: "FAQ",
     blog: "Blog",
     contact: "Contact",
-    bookCall: "Book a free call",
+    bookCall: "Book",
   },
 
   home: {
-    heroTagline:
-      "Therapy for the life you're actually living — expat pressures, career stress, and the weight of modern parenthood",
+    heroTagline: "Feel better. Think clearer. Build a more balanced life.",
     heroSubhead:
-      "Bilingual CBT therapist online, with lived expat experience and 15 years in corporate.",
+      "Online CBT therapy in English & French — for adults and teens navigating anxiety, stress, and life transitions. My specialties: expats, parents and professionals dealing with work stress & burnout.",
     heroPrimary: "Book a free discovery call",
-    heroSecondary: "Learn more about Sarah",
-    aboutStripHeading: "Therapy that knows your world",
+    heroSecondary: "Learn more about me",
+    introHeading:
+      "Are you experiencing anxiety, stress, low self-esteem, or emotional difficulties?",
+    introBody:
+      "You don't need to go through it by yourself. Therapy can help you better understand what you are going through and develop practical tools to regain balance and wellbeing.",
+    aboutStripHeading: "A therapy that speaks to you",
     aboutStripBody:
-      "Sarah Cousin Roshay is a bilingual CBT therapist who has lived the expat life, navigated corporate burnout, and experienced parenthood first-hand. She brings 15 years of corporate experience, certified CBT training, and a parenting support qualification to every session.",
+      "I'm a bilingual Cognitive Behavioural Therapy (CBT) therapist who has lived the expat life, navigated corporate pressure, and I am a mother. My approach is collaborative, practical, and solution-focused, providing a safe, supportive, and non-judgmental space where you can explore your challenges and move forward at your own pace. My diverse background, my corporate experience and my certifications in psychotherapy allow me to provide you a tailored approach according to your needs and objectives.",
+    credentialBadges: [
+      "CBT Certified",
+      "Lived Expat Experience",
+      "15 Years Corporate",
+      "Parenting Certified",
+    ],
     audienceHeading: "Who I work with",
     audience: {
       expats: {
-        label: "I'm an expat navigating life abroad",
+        label: "Expats looking for a therapist who speaks their language",
         description:
           "Isolation, culture shock, identity and the invisible weight of building a life somewhere new.",
       },
       professionals: {
-        label: "I'm struggling with work stress or burnout",
+        label: "Those struggling with work pressure or burnout",
         description:
           "Anxiety, perfectionism, imposter syndrome — and the exhaustion of pushing through it.",
       },
       parents: {
-        label: "I'm a parent feeling overwhelmed",
+        label: "Parents feeling overwhelmed",
         description:
           "Perinatal anxiety, the identity shift of new parenthood, and the pressure of doing it all.",
       },
     },
-    testimonialsHeading: "What clients say",
+    testimonialsHeading: "What patients say",
     testimonials: [
       {
         quote:
@@ -59,41 +69,135 @@ const en: Dictionary = {
     ],
     ctaBannerHeading: "Ready to take the first step?",
     ctaBannerBody:
-      "A free 20-minute discovery call lets you ask questions and feel whether working together is the right fit — no pressure.",
+      "A free 15-minute discovery call lets you ask questions and feel whether working together is the right fit — no pressure.",
     ctaBannerButton: "Book your free discovery call",
   },
 
   about: {
-    pageTitle: "About Sarah",
+    pageTitle: "About me",
     pageSubtitle:
       "Bilingual CBT therapist with lived experience of expat life, corporate stress, and parenthood.",
-    storyHeading: "How I got here",
-    credentialsHeading: "Training & qualifications",
-    approachHeading: "How I work",
+    storyHeading: "From corporate to psychology",
+    storyParagraphs: [
+      "For fifteen years, I worked in corporate environments — in roles that demanded performance, resilience, and an ability to absorb pressure without showing it. I know what it means to succeed on the outside while quietly struggling on the inside. As I worked in internal communication and employee engagement, my job was to support individuals navigating organisational change, professional pressure, and increasing challenges related to stress, burnout, and work-life balance.",
+      "This experience gave me a deep understanding of the psychological and emotional impact of modern professional environments and naturally led me to train in psychology and psychotherapy.",
+      "I am also certified in parenting support. I believe that supporting parents is particularly important in today's world. Being a parent is not easy — I am one myself, and I understand. When parents feel supported, it helps children grow in a healthier and more confident way. Today, I combine evidence-based therapeutic tools with a strong understanding of professional and family dynamics to offer a practical and personalised approach to therapy.",
+      "Having grown up in an international environment and lived abroad for many years, I have a multicultural background. I work comfortably with expats and culturally diverse patients, offering therapy in both English and French.",
+    ],
+    credentialsHeading: "My Certifications and affiliations",
+    credentials: [
+      "Certified CBT Therapist from the EFPP e-faculty of Psychology and Psychoanalysis, a France-based leading institute",
+      "Certification in Parenthood support from the EFPP",
+      "FAA Level 3 Award in supervising First Aid for Mental Health by the FFA First Aid Awards Ltd",
+      "Member of the FNP Fédération Nationale de Psychothérapie, a France-based National Federation of Psychotherapy",
+      "Bachelor in Business Administration (BBA) from ESSEC Business School, France",
+    ],
   },
 
   howIHelp: {
     pageTitle: "How I Help",
     pageSubtitle:
-      "Three areas where I specialise — each drawing on both professional training and personal experience.",
+      "I use Cognitive Behavioural Therapy (CBT) to help you understand anxiety or the challenges you are facing, reduce overwhelm and build healthier patterns.",
+    intro:
+      "I use Cognitive Behavioural Therapy (CBT) to help you understand anxiety or the challenges you are facing, reduce overwhelm and build healthier patterns. I support professionals, expats, parents navigating anxiety, stress, emotional challenges and burnout to regain balance in life.",
+    cbt: {
+      heading: "What is Cognitive Behavioural Therapy (CBT)?",
+      paragraphs: [
+        "Cognitive Behavioural Therapy (CBT) is a scientifically validated therapeutic approach widely used to treat anxiety, stress, and many emotional difficulties.",
+        "CBT focuses on the interaction between thoughts, emotions, and behaviours. Sometimes, unhelpful thinking patterns or behaviours can maintain or intensify distress.",
+      ],
+      helpsYouLead: "CBT helps you:",
+      helpsYou: [
+        "identify patterns that maintain difficulties",
+        "better understand how your mind works",
+        "develop healthier coping strategies",
+        "create practical and sustainable changes in daily life",
+      ],
+      closing: "CBT is a structured, practical, and goal-oriented therapy.",
+    },
+    whoIWorkWith: {
+      heading: "Who I work with",
+      lead:
+        "I work with adults and teenagers who want to better understand themselves and develop tools to improve their emotional wellbeing.",
+      suitableLead: "Online therapy may be particularly suitable if you:",
+      suitable: [
+        "feel overwhelmed by stress or anxiety",
+        "are going through a challenging life period",
+        "want to build confidence and emotional resilience",
+        "are looking for practical strategies to cope better",
+      ],
+      closing:
+        "Since all sessions take place online, therapy is accessible wherever you are.",
+    },
+    commonIssues: {
+      heading: "Common issues I support",
+      lead: "I commonly support people experiencing:",
+      items: [
+        "anxiety and anxiety-related difficulties",
+        "stress and chronic stress",
+        "burnout and work-related pressure",
+        "low self-esteem and lack of confidence",
+        "emotional regulation difficulties",
+        "relationship challenges",
+        "life transitions and personal changes",
+        "expat-related challenges",
+        "phobias and addictions",
+      ],
+      closing:
+        "Each therapeutic process is tailored to your individual background, needs, and goals.",
+    },
+    howItWorks: {
+      heading: "How Therapy Works",
+      lead: "Therapy is a collaborative process.",
+      firstSession: {
+        heading: "First Session",
+        lead: "The first session is an opportunity to:",
+        items: [
+          "explore what you are currently experiencing",
+          "understand your needs and goals",
+          "answer your questions",
+          "see whether this approach feels right for you",
+        ],
+      },
+      ongoing: {
+        heading: "Ongoing Sessions",
+        lead: "In the following sessions, we will work together to:",
+        items: [
+          "identify patterns of thinking or behaviour that maintain difficulties",
+          "understand emotional responses",
+          "develop practical coping strategies",
+        ],
+        closing:
+          "CBT often includes practical tools and exercises to try between sessions, helping create lasting change.",
+      },
+      sessionLength:
+        "Sessions typically last 45 to 60 minutes and take place via secure video consultation.",
+      fee: "Fee: 60 euros per session",
+    },
+  },
+
+  mySpecialties: {
+    pageTitle: "My Specialties",
+    pageSubtitle:
+      "Areas where I specialise — each drawing on both professional training and personal experience.",
     services: {
       expats: {
-        title: "Therapy for Expats",
+        title: "Expats",
         description:
           "Isolation, culture shock, identity shifts and the strain of building a life in a new country — this is complex, and often invisible. I've lived it.",
-        learnMore: "Read more about expat therapy",
+        learnMore: "Read more",
       },
       burnout: {
         title: "Burnout & Work Stress",
         description:
           "Anxiety, perfectionism, and the exhaustion of high performance. Fifteen years in corporate means I understand your world from the inside.",
-        learnMore: "Read more about burnout therapy",
+        learnMore: "Read more",
       },
       parenting: {
-        title: "Parenting Support",
+        title: "Parenting support: parental anxiety, maternity, overwhelm…",
         description:
           "Perinatal anxiety, matrescence, overwhelm, and the invisible weight of modern parenthood. Certified in parenting support and a parent myself.",
-        learnMore: "Read more about parenting support",
+        learnMore: "Read more",
       },
     },
   },
@@ -103,50 +207,45 @@ const en: Dictionary = {
     pageSubtitle: "Everything you need to know before booking.",
     items: [
       {
-        question: "How do sessions work?",
+        question: "How do online sessions work?",
         answer:
-          "Sessions are 50 minutes long and take place online via a secure, encrypted video platform. We typically meet weekly or bi-weekly depending on your needs and availability.",
+          "Sessions are 50 to 60 minutes long and take place via secure video call. All you need is a quiet, private space and a stable internet connection. Online therapy offers flexibility and allows you to access support wherever you are in the world. We typically meet weekly or bi-weekly depending on your needs and availability.",
       },
       {
-        question: "What languages do you offer therapy in?",
+        question: "How long does therapy take?",
         answer:
-          "I offer therapy in both English and French. You choose the language for each session — or we can switch between them if that feels right.",
+          "This depends on your needs and goals. Some come for a few sessions to work through a specific issue, while others choose longer-term support. We regularly review your progress together.",
       },
       {
         question: "Where are you based and what time zones do you cover?",
         answer:
-          "I'm based in France and work flexibly across European time zones and overlapping US hours. We'll find a slot that works for your schedule.",
+          "I'm based in France and work flexibly across European time zones and overlapping US hours. We'll find a slot that works for your schedule. I specialise in working with expats and international professionals from personal experience. Living abroad can bring unique challenges — such as isolation, identity shifts, or pressure to \"make it work\" — and therapy can help you navigate these more confidently.",
       },
       {
-        question: "What is CBT?",
+        question: "Is online therapy more affordable?",
         answer:
-          "Cognitive Behavioural Therapy (CBT) is a practical, evidence-based approach that helps you identify and shift the thought patterns and behaviours that are keeping you stuck. Read more in my blog post on what CBT is and whether it's right for you.",
+          "I offer transparent pricing that is often more accessible compared to private therapy in countries like the UK, Switzerland, or Dubai. This allows you to access consistent support without long waiting times or high costs. I also offer packages designed to ease the financial side of therapy, so cost is less of a barrier to getting support.",
       },
       {
-        question: "Is online therapy effective?",
+        question: "What kind of issues do you support?",
         answer:
-          "Yes — research shows that online CBT is as effective as in-person therapy for most issues. I've written about this in detail on the blog. Online therapy is especially convenient for expats, busy professionals, and parents.",
+          "I mainly support people with: anxiety and overthinking; stress and burnout; work-related pressure; life transitions (moving abroad, career changes, parenthood); emotional overwhelm and difficulty switching off.",
       },
       {
-        question: "What about confidentiality?",
+        question: "How do I know if this is right for me?",
         answer:
-          "[VERIFY WITH SARAH] Everything discussed in our sessions is confidential, governed by professional ethics and applicable regulations. I am a member of [professional body — Sarah to verify] and bound by their code of conduct.",
+          "If you're feeling overwhelmed, anxious, or stuck in patterns you can't seem to change, therapy can help. You don't need to be in crisis — many people come simply because they want to feel better and regain clarity. What is important is to feel comfortable with your therapist. The discovery call is a chance for you to ask questions, tell me a little about what you're going through, and get a feel for whether working together is the right fit. There's no pressure and no commitment required.",
       },
       {
-        question: "How do I book?",
+        question: "How do I get started?",
         answer:
-          "You can book a free 20-minute discovery call directly via the booking link on the Contact page. Alternatively, send me a message through the contact form and I'll get back to you within 48 hours.",
-      },
-      {
-        question: "What does a free discovery call cover?",
-        answer:
-          "It's a chance for you to ask questions, tell me a little about what you're going through, and get a feel for whether working together is the right fit. There's no pressure and no commitment required.",
+          "You can book an initial session where we explore what's going on for you, what you're looking for, and how we could work together. This is also a chance for you to see if you feel comfortable working with me.",
       },
     ],
   },
 
   blog: {
-    pageTitle: "Therapy Blog",
+    pageTitle: "Blog",
     pageSubtitle:
       "Practical insights on expat life, work stress, burnout, and the emotional weight of parenthood.",
     sections: {
@@ -175,9 +274,9 @@ const en: Dictionary = {
   contact: {
     pageTitle: "Get in Touch",
     pageSubtitle:
-      "Send a message or book a free 20-minute discovery call — whichever feels easier.",
+      "Send a message, book a free 15-minute discovery call or book a session — whichever feels easier.",
     formHeading: "Send a message",
-    calendlyHeading: "Book a call directly",
+    calendlyHeading: "Book",
     calendlyFallback: "Booking link not configured.",
     fields: {
       name: "Your name",
@@ -201,7 +300,7 @@ const en: Dictionary = {
   cta: {
     bookCall: "Ready when you are",
     bookCallBody:
-      "A free 20-minute discovery call is the easiest way to start. No commitment, just a conversation.",
+      "A free 15-minute discovery call is the easiest way to start. No commitment, just a conversation.",
     bookCallButton: "Book your free discovery call",
   },
 

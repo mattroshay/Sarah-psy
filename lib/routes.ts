@@ -12,6 +12,7 @@ export const DEFAULT_LOCALE: Locale = 'en'
 const FR_SLUG_OVERRIDES: Record<string, string> = {
   about: 'a-propos',
   'how-i-help': 'comment-je-vous-aide',
+  'my-specialties': 'mes-specialites',
 }
 
 /** Reverse map: FR public slug → internal (EN) segment */

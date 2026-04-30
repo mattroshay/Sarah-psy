@@ -3,9 +3,9 @@
 
 @theme {
   /* Brand colours */
-  --color-sage:        #7A9E7E;
-  --color-sage-light:  #EAF2EB;
-  --color-sage-dark:   #4E6E52;
+  --color-sage:        #5FA39E;
+  --color-sage-light:  #E5F1F0;
+  --color-sage-dark:   #3E7773;
   --color-terra:       #C27050;
   --color-terra-light: #FAF0EB;
   --color-charcoal:    #2C2C2C;
@@ -15,9 +15,9 @@
   --color-purple:      #7B68C8;
   --color-border:      #E8E4DF;
 
-  /* Typography — vars populated by next/font at runtime */
-  --font-heading: var(--font-playfair), Georgia, serif;
-  --font-body:    var(--font-inter), system-ui, sans-serif;
+  /* Typography — Jost (Futura-style) for both headings and body, matching old site */
+  --font-heading: var(--font-jost), system-ui, sans-serif;
+  --font-body:    var(--font-jost), system-ui, sans-serif;
 }
 
 /* Base */
@@ -25,15 +25,17 @@ body {
   font-family: var(--font-body);
   color: var(--color-charcoal);
   background: #ffffff;
-  line-height: 1.7;
+  line-height: 1.6;
   font-size: 1rem;
+  font-weight: 400;
   -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   line-height: 1.25;
-  font-weight: 700;
+  font-weight: 600;
+  letter-spacing: -0.01em;
 }
 
 /* Focus ring — accessible, on-brand */

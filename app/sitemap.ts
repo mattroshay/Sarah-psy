@@ -4,11 +4,12 @@ import { getAllPosts } from '@/lib/blog'
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://sarah-psy.com'
 
-const STATIC_PAGES = ['', 'about', 'how-i-help', 'faq', 'blog', 'contact']
+const STATIC_PAGES = ['', 'about', 'how-i-help', 'my-specialties', 'faq', 'blog', 'contact']
 
 const FR_SLUG_MAP: Record<string, string> = {
   about: 'a-propos',
   'how-i-help': 'comment-je-vous-aide',
+  'my-specialties': 'mes-specialites',
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

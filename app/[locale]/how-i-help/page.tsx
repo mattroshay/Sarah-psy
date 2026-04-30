@@ -4,7 +4,6 @@ import { LOCALES, type Locale } from '@/lib/routes'
 import { getDictionary } from '@/lib/i18n'
 import { buildMetadata } from '@/lib/metadata'
 import { PageHeader } from '@/components/sections/PageHeader'
-import { Carousel, type CarouselItem } from '@/components/ui/Carousel'
 import { Banner } from '@/components/ui/Banner'
 
 type Props = { params: Promise<{ locale: string }> }
@@ -18,37 +17,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!LOCALES.includes(locale as Locale)) return {}
 
   return buildMetadata(locale as Locale, 'how-i-help', {
-    title: 'How I Help | Expats, Burnout & Parenting | Sarah Cousin Roshay',
+    title: 'How I Help | CBT for Anxiety, Stress & Burnout | Sarah Cousin Roshay',
     description:
-      'CBT therapy for expats, professionals experiencing burnout, and parents. Online in English & French with a therapist who has lived each of these experiences.',
+      'I use Cognitive Behavioural Therapy to help you understand anxiety, reduce overwhelm and build healthier patterns. Online sessions in English & French.',
   }, {
-    title: "Comment j'accompagne | Expatriés, Burn-out & Parentalité | Sarah Cousin Roshay",
+    title: "Comment j'accompagne | TCC pour anxiété, stress et burn-out | Sarah Cousin Roshay",
     description:
-      "Thérapie TCC pour expatriés, professionnels en burn-out et parents. En ligne en anglais et français avec une thérapeute qui a vécu ces expériences.",
+      "J'utilise la thérapie cognitivo-comportementale pour vous aider à comprendre l'anxiété, réduire la surcharge et construire des schémas plus sains. En ligne.",
   })
 }
-
-const SuitcaseIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-    <rect x="2" y="7" width="20" height="14" rx="2" />
-    <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" />
-    <line x1="12" y1="12" x2="12" y2="16" />
-    <line x1="10" y1="14" x2="14" y2="14" />
-  </svg>
-)
-
-const BriefcaseIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-    <rect x="2" y="7" width="20" height="14" rx="2" />
-    <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" />
-  </svg>
-)
-
-const HeartIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-  </svg>
-)
 
 export default async function HowIHelpPage({ params }: Props) {
   const { locale } = await params
@@ -58,45 +35,116 @@ export default async function HowIHelpPage({ params }: Props) {
   const { howIHelp, cta } = dict
   const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_URL || `/${locale}/contact`
 
-  const carouselItems: CarouselItem[] = [
-    {
-      id: 'expats',
-      icon: <SuitcaseIcon />,
-      title: howIHelp.services.expats.title,
-      description: howIHelp.services.expats.description,
-      learnMoreLabel: howIHelp.services.expats.learnMore,
-      learnMoreHref: `/${locale}/blog#expats`,
-      accentColor: 'sage',
-    },
-    {
-      id: 'burnout',
-      icon: <BriefcaseIcon />,
-      title: howIHelp.services.burnout.title,
-      description: howIHelp.services.burnout.description,
-      learnMoreLabel: howIHelp.services.burnout.learnMore,
-      learnMoreHref: `/${locale}/blog#professionals`,
-      accentColor: 'terra',
-    },
-    {
-      id: 'parenting',
-      icon: <HeartIcon />,
-      title: howIHelp.services.parenting.title,
-      description: howIHelp.services.parenting.description,
-      learnMoreLabel: howIHelp.services.parenting.learnMore,
-      learnMoreHref: `/${locale}/blog#parents`,
-      accentColor: 'gold',
-    },
-  ]
-
   return (
     <>
-      <PageHeader title={howIHelp.pageTitle} subtitle={howIHelp.pageSubtitle} />
+      <PageHeader title={howIHelp.pageTitle} />
 
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 py-16">
-        <Carousel items={carouselItems} />
+      {/* Intro */}
+      <section className="max-w-3xl mx-auto px-4 sm:px-6 pt-12 pb-8">
+        <p className="text-lg text-charcoal leading-relaxed">{howIHelp.intro}</p>
       </section>
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 pb-16">
+      {/* What is CBT */}
+      <section className="max-w-3xl mx-auto px-4 sm:px-6 py-10">
+        <h2 className="font-heading text-2xl md:text-3xl font-bold text-charcoal mb-5">
+          {howIHelp.cbt.heading}
+        </h2>
+        <div className="flex flex-col gap-4 text-charcoal leading-relaxed">
+          {howIHelp.cbt.paragraphs.map((p, i) => (
+            <p key={i}>{p}</p>
+          ))}
+        </div>
+        <p className="mt-5 text-charcoal font-medium">{howIHelp.cbt.helpsYouLead}</p>
+        <ul className="mt-3 flex flex-col gap-2 list-disc pl-6 text-charcoal leading-relaxed">
+          {howIHelp.cbt.helpsYou.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
+        <p className="mt-5 text-charcoal leading-relaxed">{howIHelp.cbt.closing}</p>
+      </section>
+
+      {/* Who I work with */}
+      <section className="bg-warm py-14">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6">
+          <h2 className="font-heading text-2xl md:text-3xl font-bold text-charcoal mb-5 text-center">
+            {howIHelp.whoIWorkWith.heading}
+          </h2>
+          <p className="text-charcoal leading-relaxed mb-3">{howIHelp.whoIWorkWith.lead}</p>
+          <p className="text-charcoal font-medium">{howIHelp.whoIWorkWith.suitableLead}</p>
+          <ul className="mt-3 flex flex-col gap-2 list-disc pl-6 text-charcoal leading-relaxed">
+            {howIHelp.whoIWorkWith.suitable.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+          <p className="mt-5 text-charcoal leading-relaxed">{howIHelp.whoIWorkWith.closing}</p>
+        </div>
+      </section>
+
+      {/* Common issues I support */}
+      <section className="max-w-3xl mx-auto px-4 sm:px-6 py-14">
+        <h2 className="font-heading text-2xl md:text-3xl font-bold text-charcoal mb-5">
+          {howIHelp.commonIssues.heading}
+        </h2>
+        <p className="text-charcoal leading-relaxed mb-3">{howIHelp.commonIssues.lead}</p>
+        <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-2 list-disc pl-6 text-charcoal leading-relaxed">
+          {howIHelp.commonIssues.items.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
+        <p className="mt-5 text-charcoal leading-relaxed">{howIHelp.commonIssues.closing}</p>
+      </section>
+
+      {/* How Therapy Works */}
+      <section className="bg-sage-light py-14">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6">
+          <h2 className="font-heading text-2xl md:text-3xl font-bold text-charcoal mb-3 text-center">
+            {howIHelp.howItWorks.heading}
+          </h2>
+          <p className="text-charcoal leading-relaxed text-center">
+            {howIHelp.howItWorks.lead}
+          </p>
+
+          <div className="mt-8 bg-white rounded-2xl p-6 border border-border">
+            <h3 className="font-heading text-xl font-bold text-charcoal mb-3">
+              {howIHelp.howItWorks.firstSession.heading}
+            </h3>
+            <p className="text-charcoal leading-relaxed">
+              {howIHelp.howItWorks.firstSession.lead}
+            </p>
+            <ul className="mt-3 flex flex-col gap-2 list-disc pl-6 text-charcoal leading-relaxed">
+              {howIHelp.howItWorks.firstSession.items.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="mt-6 bg-white rounded-2xl p-6 border border-border">
+            <h3 className="font-heading text-xl font-bold text-charcoal mb-3">
+              {howIHelp.howItWorks.ongoing.heading}
+            </h3>
+            <p className="text-charcoal leading-relaxed">
+              {howIHelp.howItWorks.ongoing.lead}
+            </p>
+            <ul className="mt-3 flex flex-col gap-2 list-disc pl-6 text-charcoal leading-relaxed">
+              {howIHelp.howItWorks.ongoing.items.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+            <p className="mt-4 text-charcoal leading-relaxed">
+              {howIHelp.howItWorks.ongoing.closing}
+            </p>
+          </div>
+
+          <div className="mt-8 text-center text-charcoal leading-relaxed">
+            <p>{howIHelp.howItWorks.sessionLength}</p>
+            <p className="mt-3 font-heading text-xl font-bold text-sage-dark">
+              {howIHelp.howItWorks.fee}
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16">
         <Banner
           heading={cta.bookCall}
           body={cta.bookCallBody}

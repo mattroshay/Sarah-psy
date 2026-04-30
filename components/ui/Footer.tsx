@@ -14,6 +14,7 @@ export function Footer({ locale, nav, contactEmail, contactPhone }: FooterProps)
   const links = [
     { label: nav.about, href: `/${locale}/${getPublicSlug(locale, 'about')}` },
     { label: nav.howIHelp, href: `/${locale}/${getPublicSlug(locale, 'how-i-help')}` },
+    { label: nav.mySpecialties, href: `/${locale}/${getPublicSlug(locale, 'my-specialties')}` },
     { label: nav.faq, href: `/${locale}/faq` },
     { label: nav.blog, href: `/${locale}/blog` },
     { label: nav.contact, href: `/${locale}/contact` },
@@ -38,9 +39,12 @@ export function Footer({ locale, nav, contactEmail, contactPhone }: FooterProps)
           </p>
         </div>
 
-        {/* Nav links */}
+        {/* Nav links — 2 columns × 3 rows */}
         <nav aria-label="Footer navigation">
-          <ul className="flex flex-col gap-2" role="list">
+          <ul
+            className="grid grid-cols-2 gap-x-6 gap-y-2"
+            role="list"
+          >
             {links.map(({ label, href }) => (
               <li key={href}>
                 <a
@@ -75,8 +79,10 @@ export function Footer({ locale, nav, contactEmail, contactPhone }: FooterProps)
         </div>
       </div>
 
-      <div className="border-t border-white/10 text-center py-4 text-xs text-white/40">
-        © {new Date().getFullYear()} Sarah Cousin Roshay. All rights reserved.
+      <div className="border-t border-white/10 py-4 text-xs text-white/40 flex flex-col sm:flex-row gap-1 sm:gap-4 items-center justify-center text-center">
+        <span>© {new Date().getFullYear()} Sarah Cousin Roshay. All rights reserved.</span>
+        <span aria-hidden="true" className="hidden sm:inline">·</span>
+        <span>SIRET: 97745187100023</span>
       </div>
     </footer>
   )
