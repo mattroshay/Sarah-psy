@@ -29,7 +29,8 @@ export function TintedImage({
   return (
     <div
       className={cn(
-        'relative w-full h-full',
+        'relative',
+        props.fill ? 'w-full h-full' : 'inline-block',
         rounded && 'rounded-2xl overflow-hidden',
         wrapperClassName
       )}

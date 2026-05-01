@@ -2,6 +2,7 @@ import Image from 'next/image'
 import type { NavDict } from '@/lib/i18n/types'
 import type { Locale } from '@/lib/routes'
 import { getPublicSlug } from '@/lib/routes'
+import { CopyrightYear } from './CopyrightYear'
 
 interface FooterProps {
   locale: Locale
@@ -84,7 +85,7 @@ export function Footer({ locale, nav, contactEmail, contactPhone }: FooterProps)
       </div>
 
       <div className="border-t border-white/10 px-4 sm:px-6 py-4 text-xs text-white/40 flex flex-col sm:flex-row gap-1 sm:gap-4 items-center justify-center text-center">
-        <span>© {new Date().getFullYear()} Sarah Cousin Roshay. All rights reserved.</span>
+        <span>© <CopyrightYear /> Sarah Cousin Roshay. All rights reserved.</span>
         <span aria-hidden="true" className="hidden sm:inline">·</span>
         <span>SIRET: 97745187100023</span>
       </div>
