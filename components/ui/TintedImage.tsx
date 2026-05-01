@@ -21,6 +21,11 @@ export function TintedImage({
   className,
   ...props
 }: TintedImageProps) {
+  if (process.env.NODE_ENV !== 'production' && (tintOpacity < 0 || tintOpacity > 100)) {
+    console.warn(`TintedImage: tintOpacity must be between 0 and 100, got ${tintOpacity}. Clamping.`)
+  }
+  const clampedOpacity = Math.max(0, Math.min(100, tintOpacity))
+
   return (
     <div
       className={cn(
@@ -33,7 +38,7 @@ export function TintedImage({
       <div
         aria-hidden="true"
         className="absolute inset-0 bg-sage mix-blend-multiply pointer-events-none"
-        style={{ opacity: tintOpacity / 100 }}
+        style={{ opacity: clampedOpacity / 100 }}
       />
     </div>
   )
