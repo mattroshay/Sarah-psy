@@ -7,6 +7,7 @@ import { Hero } from '@/components/ui/Hero'
 import { Card } from '@/components/ui/Card'
 import { Testimonial } from '@/components/ui/Testimonial'
 import { Banner } from '@/components/ui/Banner'
+import { TintedImage } from '@/components/ui/TintedImage'
 
 type Props = { params: Promise<{ locale: string }> }
 
@@ -59,12 +60,27 @@ export default async function HomePage({ params }: Props) {
         imageAlt="Sarah Cousin Roshay — bilingual CBT therapist"
       />
 
-      {/* Intro block */}
-      <section className="max-w-3xl mx-auto px-4 sm:px-6 py-16 text-center">
-        <h2 className="font-heading text-2xl md:text-3xl font-bold text-charcoal mb-5 leading-tight">
-          {home.introHeading}
-        </h2>
-        <p className="text-lg text-charcoal leading-relaxed">{home.introBody}</p>
+      {/* Intro block — paired with banner. Mobile: text first, then image (avoids back-to-back images with hero headshot). Desktop: image-left, text-right. */}
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 py-16">
+        <div className="grid md:grid-cols-2 gap-10 lg:gap-14 items-center">
+          <div className="relative h-72 md:h-96 order-2 md:order-1">
+            <TintedImage
+              src="/images/home-banner.jpg"
+              alt=""
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              rounded
+            />
+          </div>
+          <div className="order-1 md:order-2">
+            <h2 className="font-heading text-2xl md:text-3xl font-bold text-charcoal mb-5 leading-tight">
+              {home.introHeading}
+            </h2>
+            <p className="text-lg text-charcoal leading-relaxed first-letter:font-heading first-letter:text-5xl md:first-letter:text-6xl first-letter:font-bold first-letter:float-left first-letter:mr-3 first-letter:leading-none first-letter:text-sage-dark">
+              {home.introBody}
+            </p>
+          </div>
+        </div>
       </section>
 
       {/* About strip */}

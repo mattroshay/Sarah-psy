@@ -5,6 +5,7 @@ import { getDictionary } from '@/lib/i18n'
 import { buildMetadata } from '@/lib/metadata'
 import { PageHeader } from '@/components/sections/PageHeader'
 import { Banner } from '@/components/ui/Banner'
+import { TintedImage } from '@/components/ui/TintedImage'
 
 type Props = { params: Promise<{ locale: string }> }
 
@@ -39,9 +40,22 @@ export default async function HowIHelpPage({ params }: Props) {
     <>
       <PageHeader title={howIHelp.pageTitle} />
 
-      {/* Intro */}
+      {/* Hero banner */}
+      <section className="relative w-full h-[280px] md:h-[400px]">
+        <TintedImage
+          src="/images/how-i-help-hero.jpg"
+          alt=""
+          fill
+          sizes="100vw"
+          priority
+        />
+      </section>
+
+      {/* Intro with drop cap */}
       <section className="max-w-3xl mx-auto px-4 sm:px-6 pt-12 pb-8">
-        <p className="text-lg text-charcoal leading-relaxed">{howIHelp.intro}</p>
+        <p className="text-lg text-charcoal leading-relaxed first-letter:font-heading first-letter:text-5xl md:first-letter:text-6xl first-letter:font-bold first-letter:float-left first-letter:mr-3 first-letter:leading-none first-letter:text-sage-dark">
+          {howIHelp.intro}
+        </p>
       </section>
 
       {/* What is CBT */}
@@ -63,35 +77,59 @@ export default async function HowIHelpPage({ params }: Props) {
         <p className="mt-5 text-charcoal leading-relaxed">{howIHelp.cbt.closing}</p>
       </section>
 
-      {/* Who I work with */}
+      {/* Who I work with (with online therapy thumbnail) */}
       <section className="bg-warm py-14">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6">
-          <h2 className="font-heading text-2xl md:text-3xl font-bold text-charcoal mb-5 text-center">
-            {howIHelp.whoIWorkWith.heading}
-          </h2>
-          <p className="text-charcoal leading-relaxed mb-3">{howIHelp.whoIWorkWith.lead}</p>
-          <p className="text-charcoal font-medium">{howIHelp.whoIWorkWith.suitableLead}</p>
-          <ul className="mt-3 flex flex-col gap-2 list-disc pl-6 text-charcoal leading-relaxed">
-            {howIHelp.whoIWorkWith.suitable.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-          <p className="mt-5 text-charcoal leading-relaxed">{howIHelp.whoIWorkWith.closing}</p>
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 grid md:grid-cols-[1fr_auto] gap-10 items-start">
+          <div>
+            <h2 className="font-heading text-2xl md:text-3xl font-bold text-charcoal mb-5">
+              {howIHelp.whoIWorkWith.heading}
+            </h2>
+            <p className="text-charcoal leading-relaxed mb-3">{howIHelp.whoIWorkWith.lead}</p>
+            <p className="text-charcoal font-medium">{howIHelp.whoIWorkWith.suitableLead}</p>
+            <ul className="mt-3 flex flex-col gap-2 list-disc pl-6 text-charcoal leading-relaxed">
+              {howIHelp.whoIWorkWith.suitable.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+            <p className="mt-5 text-charcoal leading-relaxed">{howIHelp.whoIWorkWith.closing}</p>
+          </div>
+          <div className="relative w-full md:w-72 h-56 md:h-72 shrink-0">
+            <TintedImage
+              src="/images/online-therapy.jpg"
+              alt=""
+              fill
+              sizes="(max-width: 768px) 100vw, 288px"
+              rounded
+            />
+          </div>
         </div>
       </section>
 
-      {/* Common issues I support */}
-      <section className="max-w-3xl mx-auto px-4 sm:px-6 py-14">
-        <h2 className="font-heading text-2xl md:text-3xl font-bold text-charcoal mb-5">
-          {howIHelp.commonIssues.heading}
-        </h2>
-        <p className="text-charcoal leading-relaxed mb-3">{howIHelp.commonIssues.lead}</p>
-        <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-2 list-disc pl-6 text-charcoal leading-relaxed">
-          {howIHelp.commonIssues.items.map((item) => (
-            <li key={item}>{item}</li>
-          ))}
-        </ul>
-        <p className="mt-5 text-charcoal leading-relaxed">{howIHelp.commonIssues.closing}</p>
+      {/* Common issues I support (with woman silhouette) */}
+      <section className="max-w-5xl mx-auto px-4 sm:px-6 py-14">
+        <div className="grid md:grid-cols-[1fr_auto] gap-10 items-start">
+          <div>
+            <h2 className="font-heading text-2xl md:text-3xl font-bold text-charcoal mb-5">
+              {howIHelp.commonIssues.heading}
+            </h2>
+            <p className="text-charcoal leading-relaxed mb-3">{howIHelp.commonIssues.lead}</p>
+            <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-2 list-disc pl-6 text-charcoal leading-relaxed">
+              {howIHelp.commonIssues.items.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+            <p className="mt-5 text-charcoal leading-relaxed">{howIHelp.commonIssues.closing}</p>
+          </div>
+          <div className="relative w-full md:w-64 h-72 md:h-96 shrink-0">
+            <TintedImage
+              src="/images/issues-i-work-with.jpg"
+              alt=""
+              fill
+              sizes="(max-width: 768px) 100vw, 256px"
+              rounded
+            />
+          </div>
+        </div>
       </section>
 
       {/* How Therapy Works */}
