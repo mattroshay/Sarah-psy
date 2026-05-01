@@ -6,6 +6,7 @@ import { getDictionary } from '@/lib/i18n'
 import { buildMetadata } from '@/lib/metadata'
 import { PageHeader } from '@/components/sections/PageHeader'
 import { Banner } from '@/components/ui/Banner'
+import { TintedImage } from '@/components/ui/TintedImage'
 
 type Props = { params: Promise<{ locale: string }> }
 
@@ -59,7 +60,16 @@ export default async function AboutPage({ params }: Props) {
             </h2>
             <div className="flex flex-col gap-4 text-charcoal leading-relaxed">
               {about.storyParagraphs.map((p, i) => (
-                <p key={i}>{p}</p>
+                <p
+                  key={i}
+                  className={
+                    i === 0
+                      ? 'first-letter:font-heading first-letter:text-5xl md:first-letter:text-6xl first-letter:font-bold first-letter:float-left first-letter:mr-3 first-letter:leading-none first-letter:text-sage-dark'
+                      : undefined
+                  }
+                >
+                  {p}
+                </p>
               ))}
             </div>
           </div>
@@ -77,6 +87,20 @@ export default async function AboutPage({ params }: Props) {
               ))}
             </ul>
           </div>
+        </div>
+      </section>
+
+      {/* Botanical accent before CTA */}
+      <section className="max-w-5xl mx-auto px-4 sm:px-6 pb-12">
+        <div className="relative w-full h-40 md:h-56">
+          <TintedImage
+            src="/images/about-accent.jpg"
+            alt=""
+            fill
+            sizes="(max-width: 768px) 100vw, 1024px"
+            rounded
+            tintOpacity={12}
+          />
         </div>
       </section>
 

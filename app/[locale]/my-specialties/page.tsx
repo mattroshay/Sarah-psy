@@ -4,8 +4,8 @@ import { LOCALES, type Locale } from '@/lib/routes'
 import { getDictionary } from '@/lib/i18n'
 import { buildMetadata } from '@/lib/metadata'
 import { PageHeader } from '@/components/sections/PageHeader'
-import { Card } from '@/components/ui/Card'
 import { Banner } from '@/components/ui/Banner'
+import { TintedImage } from '@/components/ui/TintedImage'
 
 type Props = { params: Promise<{ locale: string }> }
 
@@ -43,6 +43,7 @@ export default async function MySpecialtiesPage({ params }: Props) {
       description: mySpecialties.services.expats.description,
       learnMore: mySpecialties.services.expats.learnMore,
       href: `/${locale}/blog#expats`,
+      image: '/images/specialties-expats.jpg',
     },
     {
       key: 'burnout',
@@ -50,6 +51,7 @@ export default async function MySpecialtiesPage({ params }: Props) {
       description: mySpecialties.services.burnout.description,
       learnMore: mySpecialties.services.burnout.learnMore,
       href: `/${locale}/blog#professionals`,
+      image: '/images/specialties-burnout.jpg',
     },
     {
       key: 'parenting',
@@ -57,6 +59,7 @@ export default async function MySpecialtiesPage({ params }: Props) {
       description: mySpecialties.services.parenting.description,
       learnMore: mySpecialties.services.parenting.learnMore,
       href: `/${locale}/blog#parents`,
+      image: '/images/specialties-parenting.jpg',
     },
   ]
 
@@ -66,17 +69,30 @@ export default async function MySpecialtiesPage({ params }: Props) {
 
       <section className="max-w-6xl mx-auto px-4 sm:px-6 py-16">
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map(({ key, title, description, learnMore, href }) => (
-            <Card key={key} className="h-full flex flex-col gap-4">
-              <h3 className="font-heading text-lg font-bold text-charcoal">{title}</h3>
-              <p className="text-sm text-charcoal leading-relaxed flex-1">{description}</p>
-              <a
-                href={href}
-                className="text-sm font-medium text-sage hover:text-sage-dark transition-colors mt-auto"
-              >
-                {learnMore} →
-              </a>
-            </Card>
+          {services.map(({ key, title, description, learnMore, href, image }) => (
+            <article
+              key={key}
+              className="bg-warm border border-border rounded-xl overflow-hidden flex flex-col transition-shadow hover:shadow-md"
+            >
+              <div className="relative h-48 w-full">
+                <TintedImage
+                  src={image}
+                  alt=""
+                  fill
+                  sizes="(max-width: 768px) 100vw, 400px"
+                />
+              </div>
+              <div className="p-6 flex flex-col gap-4 flex-1">
+                <h3 className="font-heading text-lg font-bold text-charcoal">{title}</h3>
+                <p className="text-sm text-charcoal leading-relaxed flex-1">{description}</p>
+                <a
+                  href={href}
+                  className="text-sm font-medium text-sage hover:text-sage-dark transition-colors mt-auto"
+                >
+                  {learnMore} →
+                </a>
+              </div>
+            </article>
           ))}
         </div>
       </section>

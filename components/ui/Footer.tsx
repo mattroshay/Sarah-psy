@@ -20,12 +20,14 @@ export function Footer({ locale, nav, contactEmail, contactPhone }: FooterProps)
     { label: nav.contact, href: `/${locale}/contact` },
   ]
 
+  const hasContact = Boolean(contactEmail || contactPhone)
+
   return (
     <footer className="bg-charcoal text-white mt-auto">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 flex flex-col items-center gap-10 text-center">
         {/* Brand */}
-        <div className="flex flex-col gap-4">
-          <a href={`/${locale}`}>
+        <div className="flex flex-col items-center gap-4">
+          <a href={`/${locale}`} aria-label="Home">
             <Image
               src="/logo-white.svg"
               alt="Sarah Cousin Roshay"
@@ -39,10 +41,10 @@ export function Footer({ locale, nav, contactEmail, contactPhone }: FooterProps)
           </p>
         </div>
 
-        {/* Nav links — 2 columns × 3 rows */}
+        {/* Nav links — 2 cols on mobile, single row on sm+ */}
         <nav aria-label="Footer navigation">
           <ul
-            className="grid grid-cols-2 gap-x-6 gap-y-2"
+            className="grid grid-cols-2 sm:flex sm:flex-wrap sm:justify-center gap-x-6 gap-y-3"
             role="list"
           >
             {links.map(({ label, href }) => (
@@ -59,27 +61,29 @@ export function Footer({ locale, nav, contactEmail, contactPhone }: FooterProps)
         </nav>
 
         {/* Contact */}
-        <div className="flex flex-col gap-3 text-sm text-white/70">
-          {contactEmail && (
-            <a
-              href={`mailto:${contactEmail}`}
-              className="hover:text-white transition-colors"
-            >
-              {contactEmail}
-            </a>
-          )}
-          {contactPhone && (
-            <a
-              href={`tel:${contactPhone}`}
-              className="hover:text-white transition-colors"
-            >
-              {contactPhone}
-            </a>
-          )}
-        </div>
+        {hasContact && (
+          <div className="flex flex-col items-center gap-3 text-sm text-white/70">
+            {contactEmail && (
+              <a
+                href={`mailto:${contactEmail}`}
+                className="hover:text-white transition-colors"
+              >
+                {contactEmail}
+              </a>
+            )}
+            {contactPhone && (
+              <a
+                href={`tel:${contactPhone}`}
+                className="hover:text-white transition-colors"
+              >
+                {contactPhone}
+              </a>
+            )}
+          </div>
+        )}
       </div>
 
-      <div className="border-t border-white/10 py-4 text-xs text-white/40 flex flex-col sm:flex-row gap-1 sm:gap-4 items-center justify-center text-center">
+      <div className="border-t border-white/10 px-4 sm:px-6 py-4 text-xs text-white/40 flex flex-col sm:flex-row gap-1 sm:gap-4 items-center justify-center text-center">
         <span>© {new Date().getFullYear()} Sarah Cousin Roshay. All rights reserved.</span>
         <span aria-hidden="true" className="hidden sm:inline">·</span>
         <span>SIRET: 97745187100023</span>

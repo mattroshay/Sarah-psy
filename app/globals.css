@@ -3,7 +3,8 @@
 
 @theme {
   /* Brand colours */
-  --color-sage:        #5FA39E;
+  /* --color-sage:        #5FA39E; */
+  --color-sage:        #46CCCF;
   --color-sage-light:  #E5F1F0;
   --color-sage-dark:   #3E7773;
   --color-terra:       #C27050;
