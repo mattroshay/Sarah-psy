@@ -51,7 +51,7 @@ export default async function MySpecialtiesPage({ params }: Props) {
       description: mySpecialties.services.burnout.description,
       learnMore: mySpecialties.services.burnout.learnMore,
       href: `/${locale}/blog#professionals`,
-      image: '/images/specialties-burnout.jpg',
+      image: '/images/online-therapy.jpg',
     },
     {
       key: 'parenting',

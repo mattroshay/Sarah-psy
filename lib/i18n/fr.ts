@@ -1,4 +1,5 @@
 import type { Dictionary } from './types'
+import { FEES } from '../fees'
 
 const fr: Dictionary = {
   nav: {
@@ -49,6 +50,11 @@ const fr: Dictionary = {
         description:
           "Anxiété périnatale, matrescence et la pression de tout assumer sans en parler.",
       },
+      stuck: {
+        label: "Toute personne qui se sent bloquée",
+        description:
+          "Celles et ceux qui sentent que quelque chose ne va pas sans pouvoir le nommer — qui veulent mieux se comprendre, sortir de schémas anciens et vivre avec plus d'intention. [FR — Sarah to validate]",
+      },
     },
     testimonialsHeading: "Ce que disent les patient·e·s",
     testimonials: [
@@ -81,7 +87,7 @@ const fr: Dictionary = {
     storyHeading: "De l'entreprise à la psychologie",
     storyParagraphs: [
       "Pendant quinze ans, j'ai évolué dans des environnements d'entreprise — dans des rôles qui exigeaient performance, résilience et la capacité d'absorber la pression sans le montrer. Je sais ce que c'est que de réussir en apparence tout en luttant en silence. En travaillant en communication interne et en engagement des collaborateurs, mon rôle était d'accompagner des personnes confrontées à des changements organisationnels, à la pression professionnelle et à des défis croissants liés au stress, au burn-out et à l'équilibre vie professionnelle/vie personnelle.",
-      "Cette expérience m'a donné une compréhension profonde de l'impact psychologique et émotionnel des environnements professionnels modernes, et m'a naturellement conduite à me former en psychologie et en psychothérapie.",
+      "Cette expérience m'a donné une compréhension profonde de l'impact psychologique et émotionnel des environnements professionnels modernes, et m'a naturellement conduite à me former en psychologie et en psychothérapie, en obtenant une certification en Thérapie Cognitivo-Comportementale et en bâtissant une pratique fondée à la fois sur la rigueur clinique et l'expérience du monde réel. [FR — Sarah to validate]",
       "Je suis également certifiée en soutien parental. Je crois qu'accompagner les parents est particulièrement important dans le monde d'aujourd'hui. Être parent n'est pas facile — je le suis moi-même, et je comprends. Quand les parents se sentent soutenus, cela aide leurs enfants à grandir de façon plus saine et plus confiante. Aujourd'hui, je combine des outils thérapeutiques fondés sur des données probantes avec une compréhension solide des dynamiques professionnelles et familiales pour offrir une approche pratique et personnalisée.",
       "Ayant grandi dans un environnement international et vécu de nombreuses années à l'étranger, j'ai un parcours multiculturel. Je travaille avec aisance avec des expatriés et des patients culturellement divers, en proposant la thérapie en français comme en anglais.",
     ],
@@ -171,9 +177,18 @@ const fr: Dictionary = {
         closing:
           "La TCC inclut souvent des outils et exercices pratiques à essayer entre les séances, pour ancrer le changement dans la durée.",
       },
-      sessionLength:
-        "Les séances durent généralement de 45 à 60 minutes et se tiennent en visioconférence sécurisée.",
-      fee: "Tarif : 60 euros par séance",
+      fees: {
+        heading: "Tarifs",
+        sessionLength:
+          "Les séances durent généralement de 45 à 60 minutes et se tiennent en visioconférence sécurisée.",
+        feeLine: `Tarif : ${FEES.singleSession}€ par séance`,
+        packagesLead:
+          "Je propose également des forfaits pour alléger la dimension financière de la thérapie. [FR — Sarah to validate]",
+        packages: [
+          `4 séances à ${FEES.package4}€`,
+          `8 séances à ${FEES.package8}€`,
+        ],
+      },
     },
   },
 
@@ -210,7 +225,7 @@ const fr: Dictionary = {
       {
         question: "Comment se déroulent les séances en ligne ?",
         answer:
-          "Les séances durent de 50 à 60 minutes et se tiennent en visioconférence sécurisée. Il vous suffit d'un endroit calme et privé et d'une connexion internet stable. La thérapie en ligne offre de la flexibilité et vous permet d'accéder à un soutien où que vous soyez dans le monde. Nous nous retrouvons généralement chaque semaine ou toutes les deux semaines selon vos besoins et votre disponibilité.",
+          "Les séances durent de 45 à 60 minutes et se tiennent en visioconférence sécurisée. Il vous suffit d'un endroit calme et privé et d'une connexion internet stable. La thérapie en ligne offre de la flexibilité et vous permet d'accéder à un soutien où que vous soyez dans le monde. Nous nous retrouvons généralement chaque semaine ou toutes les deux semaines selon vos besoins et votre disponibilité.",
       },
       {
         question: "Combien de temps dure une thérapie ?",
@@ -223,14 +238,28 @@ const fr: Dictionary = {
           "Je suis basée en France et je travaille de façon flexible sur les fuseaux européens et les horaires américains qui se chevauchent. Nous trouverons un créneau adapté à votre emploi du temps. Je me spécialise dans l'accompagnement des expatriés et des professionnels internationaux à partir de mon expérience personnelle. Vivre à l'étranger peut amener des défis particuliers — isolement, bouleversements identitaires, pression de « faire que ça marche » — et la thérapie peut vous aider à les traverser plus sereinement.",
       },
       {
+        question: "Combien coûte une séance ?",
+        answer: `Une séance individuelle coûte ${FEES.singleSession}€. Je propose également des forfaits pour alléger la dimension financière de la thérapie. [FR — Sarah to validate]`,
+        answerBullets: [
+          `4 séances à ${FEES.package4}€`,
+          `8 séances à ${FEES.package8}€`,
+        ],
+      },
+      {
         question: "La thérapie en ligne est-elle plus abordable ?",
         answer:
           "Je propose une tarification transparente, souvent plus accessible que la thérapie privée dans des pays comme le Royaume-Uni, la Suisse ou Dubaï. Cela vous permet d'accéder à un accompagnement régulier sans longues listes d'attente ni coûts élevés. Je propose également des forfaits conçus pour alléger l'aspect financier de la thérapie, afin que le coût soit moins un frein.",
       },
       {
         question: "Quels types de difficultés accompagnez-vous ?",
-        answer:
-          "J'accompagne principalement des personnes confrontées à : l'anxiété et la rumination ; le stress et le burn-out ; la pression professionnelle ; les transitions de vie (départ à l'étranger, changements de carrière, parentalité) ; la surcharge émotionnelle et la difficulté à décrocher.",
+        answer: "J'accompagne principalement des personnes qui vivent : [FR — Sarah to validate]",
+        answerBullets: [
+          "Anxiété et ruminations",
+          "Stress et burnout",
+          "Pression professionnelle",
+          "Transitions de vie (expatriation, changement de carrière, parentalité)",
+          "Surcharge émotionnelle et difficulté à décrocher",
+        ],
       },
       {
         question: "Comment savoir si c'est fait pour moi ?",
@@ -240,7 +269,7 @@ const fr: Dictionary = {
       {
         question: "Comment commencer ?",
         answer:
-          "Vous pouvez réserver une première séance pour explorer ensemble ce que vous traversez, ce que vous cherchez, et la façon dont nous pourrions travailler ensemble. C'est aussi l'occasion de voir si vous vous sentez à l'aise avec moi.",
+          "Vous pouvez réserver un appel découverte pour explorer ensemble ce que vous traversez, ce que vous cherchez, et la façon dont nous pourrions travailler ensemble. C'est aussi l'occasion de voir si vous vous sentez à l'aise avec moi. [FR — Sarah to validate]",
       },
     ],
   },

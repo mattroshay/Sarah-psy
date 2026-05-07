@@ -6,6 +6,7 @@ import { buildMetadata } from '@/lib/metadata'
 import { PageHeader } from '@/components/sections/PageHeader'
 import { Banner } from '@/components/ui/Banner'
 import { TintedImage } from '@/components/ui/TintedImage'
+import { FeesBlock } from '@/components/ui/FeesBlock'
 
 type Props = { params: Promise<{ locale: string }> }
 
@@ -43,7 +44,7 @@ export default async function HowIHelpPage({ params }: Props) {
       {/* Hero banner */}
       <section className="relative w-full h-[280px] md:h-[400px]">
         <TintedImage
-          src="/images/how-i-help-hero.jpg"
+          src="/images/how-i-help-2.jpg"
           alt=""
           fill
           sizes="100vw"
@@ -51,9 +52,9 @@ export default async function HowIHelpPage({ params }: Props) {
         />
       </section>
 
-      {/* Intro with drop cap */}
+      {/* Intro */}
       <section className="max-w-3xl mx-auto px-4 sm:px-6 pt-12 pb-8">
-        <p className="text-lg text-charcoal leading-relaxed first-letter:font-heading first-letter:text-5xl md:first-letter:text-6xl first-letter:font-bold first-letter:float-left first-letter:mr-3 first-letter:leading-none first-letter:text-sage-dark">
+        <p className="text-lg text-charcoal leading-relaxed">
           {howIHelp.intro}
         </p>
       </section>
@@ -93,12 +94,12 @@ export default async function HowIHelpPage({ params }: Props) {
             </ul>
             <p className="mt-5 text-charcoal leading-relaxed">{howIHelp.whoIWorkWith.closing}</p>
           </div>
-          <div className="relative w-full md:w-72 h-56 md:h-72 shrink-0">
+          <div className="relative w-64 h-72 md:h-96 shrink-0 mx-auto">
             <TintedImage
-              src="/images/online-therapy.jpg"
+              src="/images/specialties.jpg"
               alt=""
               fill
-              sizes="(max-width: 768px) 100vw, 288px"
+              sizes="256px"
               rounded
             />
           </div>
@@ -120,12 +121,12 @@ export default async function HowIHelpPage({ params }: Props) {
             </ul>
             <p className="mt-5 text-charcoal leading-relaxed">{howIHelp.commonIssues.closing}</p>
           </div>
-          <div className="relative w-full md:w-64 h-72 md:h-96 shrink-0">
+          <div className="relative w-64 h-72 md:h-96 shrink-0 mx-auto">
             <TintedImage
-              src="/images/issues-i-work-with.jpg"
+              src="/images/how-i-help-3.jpg"
               alt=""
               fill
-              sizes="(max-width: 768px) 100vw, 256px"
+              sizes="256px"
               rounded
             />
           </div>
@@ -173,11 +174,8 @@ export default async function HowIHelpPage({ params }: Props) {
             </p>
           </div>
 
-          <div className="mt-8 text-center text-charcoal leading-relaxed">
-            <p>{howIHelp.howItWorks.sessionLength}</p>
-            <p className="mt-3 font-heading text-xl font-bold text-sage-dark">
-              {howIHelp.howItWorks.fee}
-            </p>
+          <div className="mt-6">
+            <FeesBlock {...howIHelp.howItWorks.fees} variant="card" />
           </div>
         </div>
       </section>

@@ -1,4 +1,5 @@
 import type { Dictionary } from './types'
+import { FEES } from '../fees'
 
 const en: Dictionary = {
   nav: {
@@ -48,6 +49,11 @@ const en: Dictionary = {
         description:
           "Perinatal anxiety, the identity shift of new parenthood, and the pressure of doing it all.",
       },
+      stuck: {
+        label: "Anyone feeling stuck",
+        description:
+          "Those who feel something is off but can't quite name it — they want to understand themselves better, break old patterns and live with more intention.",
+      },
     },
     testimonialsHeading: "What patients say",
     testimonials: [
@@ -80,7 +86,7 @@ const en: Dictionary = {
     storyHeading: "From corporate to psychology",
     storyParagraphs: [
       "For fifteen years, I worked in corporate environments — in roles that demanded performance, resilience, and an ability to absorb pressure without showing it. I know what it means to succeed on the outside while quietly struggling on the inside. As I worked in internal communication and employee engagement, my job was to support individuals navigating organisational change, professional pressure, and increasing challenges related to stress, burnout, and work-life balance.",
-      "This experience gave me a deep understanding of the psychological and emotional impact of modern professional environments and naturally led me to train in psychology and psychotherapy.",
+      "This experience gave me a deep understanding of the psychological and emotional impact of modern professional environments and naturally led me to train in psychology and psychotherapy, earning a certification in Cognitive Behavioural Therapy and building a practice grounded in both clinical rigour and real-world experience.",
       "I am also certified in parenting support. I believe that supporting parents is particularly important in today's world. Being a parent is not easy — I am one myself, and I understand. When parents feel supported, it helps children grow in a healthier and more confident way. Today, I combine evidence-based therapeutic tools with a strong understanding of professional and family dynamics to offer a practical and personalised approach to therapy.",
       "Having grown up in an international environment and lived abroad for many years, I have a multicultural background. I work comfortably with expats and culturally diverse patients, offering therapy in both English and French.",
     ],
@@ -170,9 +176,18 @@ const en: Dictionary = {
         closing:
           "CBT often includes practical tools and exercises to try between sessions, helping create lasting change.",
       },
-      sessionLength:
-        "Sessions typically last 45 to 60 minutes and take place via secure video consultation.",
-      fee: "Fee: 60 euros per session",
+      fees: {
+        heading: "Fees",
+        sessionLength:
+          "Sessions typically last 45 to 60 minutes and take place via secure video consultation.",
+        feeLine: `Fee: ${FEES.singleSession}€ per session`,
+        packagesLead:
+          "I also offer packages designed to ease the financial side of therapy.",
+        packages: [
+          `4 sessions at ${FEES.package4}€`,
+          `8 sessions at ${FEES.package8}€`,
+        ],
+      },
     },
   },
 
@@ -209,7 +224,7 @@ const en: Dictionary = {
       {
         question: "How do online sessions work?",
         answer:
-          "Sessions are 50 to 60 minutes long and take place via secure video call. All you need is a quiet, private space and a stable internet connection. Online therapy offers flexibility and allows you to access support wherever you are in the world. We typically meet weekly or bi-weekly depending on your needs and availability.",
+          "Sessions are 45 to 60 minutes long and take place via secure video call. All you need is a quiet, private space and a stable internet connection. Online therapy offers flexibility and allows you to access support wherever you are in the world. We typically meet weekly or bi-weekly depending on your needs and availability.",
       },
       {
         question: "How long does therapy take?",
@@ -222,14 +237,28 @@ const en: Dictionary = {
           "I'm based in France and work flexibly across European time zones and overlapping US hours. We'll find a slot that works for your schedule. I specialise in working with expats and international professionals from personal experience. Living abroad can bring unique challenges — such as isolation, identity shifts, or pressure to \"make it work\" — and therapy can help you navigate these more confidently.",
       },
       {
+        question: "How much does a session cost?",
+        answer: `An individual session is ${FEES.singleSession}€. I also offer packages designed to ease the financial side of therapy.`,
+        answerBullets: [
+          `4 sessions at ${FEES.package4}€`,
+          `8 sessions at ${FEES.package8}€`,
+        ],
+      },
+      {
         question: "Is online therapy more affordable?",
         answer:
           "I offer transparent pricing that is often more accessible compared to private therapy in countries like the UK, Switzerland, or Dubai. This allows you to access consistent support without long waiting times or high costs. I also offer packages designed to ease the financial side of therapy, so cost is less of a barrier to getting support.",
       },
       {
         question: "What kind of issues do you support?",
-        answer:
-          "I mainly support people with: anxiety and overthinking; stress and burnout; work-related pressure; life transitions (moving abroad, career changes, parenthood); emotional overwhelm and difficulty switching off.",
+        answer: "I mainly support people with:",
+        answerBullets: [
+          "Anxiety and overthinking",
+          "Stress and burnout",
+          "Work-related pressure",
+          "Life transitions (moving abroad, career changes, parenthood)",
+          "Emotional overwhelm and difficulty switching off",
+        ],
       },
       {
         question: "How do I know if this is right for me?",
@@ -239,7 +268,7 @@ const en: Dictionary = {
       {
         question: "How do I get started?",
         answer:
-          "You can book an initial session where we explore what's going on for you, what you're looking for, and how we could work together. This is also a chance for you to see if you feel comfortable working with me.",
+          "You can book a discovery call where we explore what's going on for you, what you're looking for, and how we could work together. This is also a chance for you to see if you feel comfortable working with me.",
       },
     ],
   },
