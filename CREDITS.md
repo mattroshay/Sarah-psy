@@ -15,7 +15,7 @@ The following photographs were provided by Sarah Cousin Roshay. All rights reser
 | public/images/specialties-parenting.jpg | My Specialties — parenting card, Matrescence blog post |
 | public/images/specialties.jpg | How I Help — "Who I work with" thumbnail |
 | public/images/blog/what-is-cbt.jpg | "What is CBT" blog post |
-| public/images/sarah-headshot.jpg | About page headshot |
+| public/images/sarah-headshot.jpg | Home hero, About page headshot |
 
 ## Blog images — Unsplash
 
