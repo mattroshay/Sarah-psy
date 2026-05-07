@@ -44,6 +44,7 @@ export default async function HomePage({ params }: Props) {
     expats: `/${locale}/blog#expats`,
     professionals: `/${locale}/blog#professionals`,
     parents: `/${locale}/blog#parents`,
+    stuck: `/${locale}/${getPublicSlug(locale as Locale, 'contact')}`,
   }
 
   return (
@@ -65,7 +66,7 @@ export default async function HomePage({ params }: Props) {
         <div className="grid md:grid-cols-2 gap-10 lg:gap-14 items-center">
           <div className="relative h-72 md:h-96 order-2 md:order-1">
             <TintedImage
-              src="/images/home-banner.jpg"
+              src="/images/issues-i-work-with.jpg"
               alt=""
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
@@ -76,7 +77,7 @@ export default async function HomePage({ params }: Props) {
             <h2 className="font-heading text-2xl md:text-3xl font-bold text-charcoal mb-5 leading-tight">
               {home.introHeading}
             </h2>
-            <p className="text-lg text-charcoal leading-relaxed first-letter:font-heading first-letter:text-5xl md:first-letter:text-6xl first-letter:font-bold first-letter:float-left first-letter:mr-3 first-letter:leading-none first-letter:text-sage-dark">
+            <p className="text-lg text-charcoal leading-relaxed">
               {home.introBody}
             </p>
           </div>
@@ -110,8 +111,8 @@ export default async function HomePage({ params }: Props) {
         <h2 className="font-heading text-2xl md:text-3xl font-bold text-charcoal mb-8 text-center">
           {home.audienceHeading}
         </h2>
-        <div className="grid sm:grid-cols-3 gap-6">
-          {(['expats', 'professionals', 'parents'] as const).map((key) => (
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {(['expats', 'professionals', 'parents', 'stuck'] as const).map((key) => (
             <a
               key={key}
               href={audienceLinks[key]}

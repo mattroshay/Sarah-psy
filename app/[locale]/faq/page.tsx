@@ -57,7 +57,14 @@ export default async function FaqPage({ params }: Props) {
                 </span>
               </summary>
               <dd className="px-6 pb-5 pt-3 text-charcoal leading-relaxed text-sm">
-                {item.answer}
+                <p>{item.answer}</p>
+                {item.answerBullets && (
+                  <ul className="mt-3 flex flex-col gap-1.5 list-disc pl-6">
+                    {item.answerBullets.map((b) => (
+                      <li key={b}>{b}</li>
+                    ))}
+                  </ul>
+                )}
               </dd>
             </details>
           ))}

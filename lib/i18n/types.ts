@@ -24,6 +24,7 @@ export interface HomeDict {
     expats: { label: string; description: string }
     professionals: { label: string; description: string }
     parents: { label: string; description: string }
+    stuck: { label: string; description: string }
   }
   testimonialsHeading: string
   testimonials: Array<{ quote: string; attribution: string }>
@@ -70,8 +71,13 @@ export interface HowIHelpDict {
     lead: string
     firstSession: { heading: string; lead: string; items: string[] }
     ongoing: { heading: string; lead: string; items: string[]; closing: string }
-    sessionLength: string
-    fee: string
+    fees: {
+      heading: string
+      sessionLength: string
+      feeLine: string
+      packagesLead: string
+      packages: string[]
+    }
   }
 }
 
@@ -88,7 +94,11 @@ export interface MySpecialtiesDict {
 export interface FaqDict {
   pageTitle: string
   pageSubtitle: string
-  items: Array<{ question: string; answer: string }>
+  items: Array<{
+    question: string
+    answer: string
+    answerBullets?: string[]
+  }>
 }
 
 export interface BlogDict {

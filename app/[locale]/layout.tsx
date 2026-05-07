@@ -56,7 +56,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   }
 
   const dict = await getDictionary(locale as Locale)
-  const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_URL || undefined
+  const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_URL || `/${locale}/contact`
 
   return (
     <>

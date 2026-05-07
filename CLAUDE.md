@@ -517,3 +517,249 @@ These are flagged so the build agent doesn't silently invent answers:
 2. **FAQ regulatory wording** (confidentiality, professional body, jurisdiction): Sarah needs to provide accurate text — placeholder `[VERIFY WITH SARAH]` until then.
 3. **Post 06 topic assignment**: "Does online therapy work?" is cross-cutting. Currently assigned to `parents` to keep topic counts even (2 posts each). If preferred, reassign to `expats` or add a fourth `general` topic.
 4. **Audience pages** as dedicated routes (`/expat-therapy` etc) vs blog accordion sections — current default is accordion-only. Revisit if SEO performance after launch suggests dedicated landing pages would help.
+
+---
+
+## 18. May 4 punch list — Sarah's review feedback
+
+**Source:** `~/Documents/Claude/Projects/Sarah's BD, Website & SEO/Comments 4th may.docx`
+**Scope:** 12 surgical changes across Home, About, How I Help, My Specialties, FAQ, and Blog. No structural / architectural work.
+**Parity rule:** every copy change below must land in **both** `lib/i18n/en.ts` and `lib/i18n/fr.ts` (and matching MDX where noted). FR drafts are provided where new copy is introduced — flag them with `[FR — Sarah to validate]` so Sarah can confirm wording on review.
+**Where Matt has already aligned with Sarah:** the new fee section is a real reusable component (`<FeesBlock />`) shared by How I Help and FAQ; the EN+FR mirror is done in this same pass.
+**Working order:** do step 18.0 (asset copy) first — every page-level change below references the new image filenames, so getting them on disk avoids broken `<Image>` paths during the rest of the work.
+
+### 18.0. Copy May 4 image assets into `public/images/`
+
+These overwrite the current Unsplash placeholders (and add four new files). Source folder is `~/Documents/Claude/Projects/Sarah's BD, Website & SEO/Images/`. Re-encode to optimised JPG (≤ 200 KB target) when copying — the source files are 1–3 MB each.
+
+| Source filename | Destination path | Used by |
+|---|---|---|
+| `Issues I work with.jpg` | `public/images/issues-i-work-with.jpg` (overwrite) | Home intro block + Burnout blog post |
+| `Specialties 3.jpg` | `public/images/specialties-3.jpg` (new) | About — replaces botanical accent |
+| `How I help 2.jpg` | `public/images/how-i-help-2.jpg` (new) | How I Help — hero band |
+| `How I help 3.jpg` | `public/images/how-i-help-3.jpg` (new) | How I Help — "Common issues" thumbnail |
+| `Expat blog.jpg` | `public/images/specialties-expats.jpg` (overwrite) | My Specialties — expats card |
+| `Online therapy.jpg` | `public/images/online-therapy.jpg` (overwrite) | My Specialties — burnout card + Parents blog post |
+| `Parents blog.jpg` | `public/images/specialties-parenting.jpg` (overwrite) | My Specialties — parenting card + Matrescence blog post |
+| `Specialties.jpg` | `public/images/blog/what-is-cbt.jpg` (overwrite) | "What is CBT" blog post |
+
+When overwriting, also update the matching entry in `CREDITS.md` — these are now Sarah-supplied photographs, not Unsplash, so the prior credit lines should be removed and replaced with "Photo: Sarah Cousin Roshay (client-supplied)".
+
+### 18.1. Home (`app/[locale]/page.tsx`)
+
+- [ ] **Remove the drop-cap.** Strip the `first-letter:*` Tailwind utilities from the intro paragraph — currently lines 79–81 (`<p className="text-lg text-charcoal leading-relaxed first-letter:font-heading first-letter:text-5xl ...">{home.introBody}</p>`). Replace with `<p className="text-lg text-charcoal leading-relaxed">{home.introBody}</p>`. (Sarah's note: "Changed my mind, I don't like the big first letter in capital.")
+  - **Consistency check:** the same drop-cap pattern is also applied on `app/[locale]/about/page.tsx` line 67 and `app/[locale]/how-i-help/page.tsx` line 56. Sarah only called out Home, but the treatment is visually identical — Matt to confirm whether to remove on About and How I Help too. Default if no answer: leave About + How I Help untouched and surface as a follow-up question.
+- [ ] **Swap the home banner image.** In the intro block (line 68), change `src="/images/home-banner.jpg"` → `src="/images/issues-i-work-with.jpg"`. The old `home-banner.jpg` can be deleted from `public/images/` once nothing references it.
+- [ ] **Add a 4th audience card: "Anyone feeling stuck".**
+  - Update `lib/i18n/types.ts` `HomeDict.audience` to add a fourth key:
+    ```ts
+    stuck: { label: string; description: string }
+    ```
+    and update the audience-keys tuple.
+  - In `lib/i18n/en.ts` `home.audience`, add:
+    ```ts
+    stuck: {
+      label: "Anyone feeling stuck",
+      description: "Those who feel something is off but can't quite name it — they want to understand themselves better, break old patterns and live with more intention.",
+    },
+    ```
+  - In `lib/i18n/fr.ts` `home.audience`, add `[FR — Sarah to validate]`:
+    ```ts
+    stuck: {
+      label: "Toute personne qui se sent bloquée",
+      description: "Celles et ceux qui sentent que quelque chose ne va pas sans pouvoir le nommer — qui veulent mieux se comprendre, sortir de schémas anciens et vivre avec plus d'intention.",
+    },
+    ```
+  - In `app/[locale]/page.tsx` line 113–129, add `'stuck'` to the iteration tuple: `(['expats', 'professionals', 'parents', 'stuck'] as const)`. The "stuck" card should link to a sensible target — recommend `/${locale}/contact` (since it's a self-identification with no matching blog topic). Update `audienceLinks` accordingly.
+  - **Layout:** the existing grid is `grid sm:grid-cols-3`. Change to `grid sm:grid-cols-2 lg:grid-cols-4` so 4 cards lay out cleanly: 1-col mobile → 2×2 tablet → 4-across desktop. Verify the card heights still align (the `h-full flex flex-col` on `<Card>` should handle uneven copy lengths).
+
+### 18.2. About (`app/[locale]/about/page.tsx`)
+
+- [ ] **Append a sentence to the second paragraph.** In `lib/i18n/en.ts` `about.storyParagraphs[1]`, change:
+  > "This experience gave me a deep understanding of the psychological and emotional impact of modern professional environments and naturally led me to train in psychology and psychotherapy."
+  
+  to:
+  > "This experience gave me a deep understanding of the psychological and emotional impact of modern professional environments and naturally led me to train in psychology and psychotherapy, earning a certification in Cognitive Behavioural Therapy and building a practice grounded in both clinical rigour and real-world experience."
+  
+  In `lib/i18n/fr.ts` `about.storyParagraphs[1]`, mirror with `[FR — Sarah to validate]`:
+  > "…et m'ont naturellement amenée à me former à la psychologie et à la psychothérapie, en obtenant une certification en Thérapie Cognitivo-Comportementale et en bâtissant une pratique fondée à la fois sur la rigueur clinique et l'expérience du monde réel."
+- [ ] **Replace the leaf accent image.** In `app/[locale]/about/page.tsx` line 97, change `src="/images/about-accent.jpg"` → `src="/images/specialties-3.jpg"`. The old `about-accent.jpg` can be deleted once unreferenced.
+
+### 18.3. How I Help (`app/[locale]/how-i-help/page.tsx`)
+
+- [ ] **Swap the hero band image (the "laptop").** Line 46: `src="/images/how-i-help-hero.jpg"` → `src="/images/how-i-help-2.jpg"`.
+- [ ] **Swap the "lady" thumbnail.** Sarah said "Picture of lady to replace with « how I help 3 »". The page has two thumbnails — `online-therapy.jpg` (line 98, in the "Who I work with" section) and `issues-i-work-with.jpg` (line 125, in the "Common issues" section). The likely "lady" is at line 125 (the taller portrait-aspect frame next to "Common issues"). Update line 125: `src="/images/issues-i-work-with.jpg"` → `src="/images/how-i-help-3.jpg"`. **Surface to Matt for visual confirmation before pushing** — if it's actually the line 98 image, swap that one instead.
+- [ ] **Add a Fees section at the bottom of the page.** Sarah wants a small header ("Fees") followed by session-length info, individual fee, and packages. Build this once as a reusable component and use it both here and in FAQ 18.4.
+
+  **Component spec — `components/ui/FeesBlock.tsx`:**
+  ```tsx
+  type FeesBlockProps = {
+    heading: string
+    sessionLength: string  // existing copy
+    feeLine: string        // "Fee: 60€ per session"
+    packagesLead: string   // "I also offer packages designed to ease..."
+    packages: string[]     // ["4 sessions at 220€", "8 sessions at 420€"]
+    variant?: 'inline' | 'card'  // 'inline' = compact for FAQ answer, 'card' = boxed for How I Help
+  }
+  ```
+  Server component (no client interactivity needed). Tailwind: heading `font-heading text-xl font-bold text-sage-dark`, fee line emphasised with `font-medium`, packages rendered as a `<ul list-disc pl-6>`. The `card` variant wraps in `bg-white rounded-2xl p-6 border border-border` to match the existing `firstSession` / `ongoing` cards on the page.
+
+  **Dictionary changes in `lib/i18n/types.ts`** — extend `HowIHelpDict.howItWorks` (the existing `fee: string` is too narrow):
+  ```ts
+  howItWorks: {
+    ...existing
+    fees: {
+      heading: string
+      sessionLength: string
+      feeLine: string
+      packagesLead: string
+      packages: string[]
+    }
+  }
+  ```
+  Drop the old `sessionLength` and `fee` strings from the type and from both `en.ts` / `fr.ts` once the new shape is in place — they're subsumed by the new `fees` block.
+
+  **EN copy (`lib/i18n/en.ts`):**
+  ```ts
+  fees: {
+    heading: "Fees",
+    sessionLength: "Sessions typically last 45 to 60 minutes and take place via secure video consultation.",
+    feeLine: "Fee: 60€ per session",
+    packagesLead: "I also offer packages designed to ease the financial side of therapy.",
+    packages: ["4 sessions at 220€", "8 sessions at 420€"],
+  }
+  ```
+
+  **FR copy (`lib/i18n/fr.ts`)** `[FR — Sarah to validate]`:
+  ```ts
+  fees: {
+    heading: "Tarifs",
+    sessionLength: "Les séances durent généralement 45 à 60 minutes et se déroulent par visioconférence sécurisée.",
+    feeLine: "Tarif : 60€ par séance",
+    packagesLead: "Je propose également des forfaits pour alléger la dimension financière de la thérapie.",
+    packages: ["4 séances à 220€", "8 séances à 420€"],
+  }
+  ```
+
+  **Page wiring (`app/[locale]/how-i-help/page.tsx`):** replace lines 176–181 (the current centered session-length + fee paragraph) with `<FeesBlock {...howIHelp.howItWorks.fees} variant="card" />` rendered inside the existing `<section className="bg-sage-light py-14">` block, after the "Ongoing Sessions" card.
+
+### 18.4. My Specialties (`app/[locale]/my-specialties/page.tsx`)
+
+Pure asset swaps — the references already point at the right kebab-case filenames, so once 18.0 has overwritten the source images, **no code changes are required**. After 18.0 ships, verify visually:
+
+- [ ] Expats card now shows the "Expat blog" photo (`/images/specialties-expats.jpg`)
+- [ ] Burnout card now shows the "Online therapy" photo (`/images/specialties-burnout.jpg` — wait, Sarah's mapping is "burnout → Online therapy". The current code references `/images/specialties-burnout.jpg` on line 54. Change line 54: `image: '/images/specialties-burnout.jpg'` → `image: '/images/online-therapy.jpg'`. The old `specialties-burnout.jpg` can be deleted.)
+- [ ] Parenting card now shows the "Parents blog" photo (`/images/specialties-parenting.jpg`)
+
+Note: `specialties-expats.jpg` and `specialties-parenting.jpg` are overwritten in place (per 18.0), so those two card references stay valid. Only the burnout card needs a code-level path change.
+
+### 18.5. FAQ (`app/[locale]/faq/page.tsx` + `lib/i18n/{en,fr}.ts`)
+
+- [ ] **Schema change for bullet-point answers.** Update `lib/i18n/types.ts`:
+  ```ts
+  export interface FaqDict {
+    pageTitle: string
+    pageSubtitle: string
+    items: Array<{
+      question: string
+      answer: string
+      answerBullets?: string[]      // optional list rendered after `answer`
+      fees?: boolean                // when true, render <FeesBlock variant="inline"> after the answer
+    }>
+  }
+  ```
+- [ ] **Update the FAQ page render** to handle the new optional fields. In `app/[locale]/faq/page.tsx` lines 59–61, replace the single `<dd>{item.answer}</dd>` with:
+  ```tsx
+  <dd className="px-6 pb-5 pt-3 text-charcoal leading-relaxed text-sm">
+    <p>{item.answer}</p>
+    {item.answerBullets && (
+      <ul className="mt-3 flex flex-col gap-1.5 list-disc pl-6">
+        {item.answerBullets.map((b) => <li key={b}>{b}</li>)}
+      </ul>
+    )}
+    {item.fees && (
+      <div className="mt-4">
+        <FeesBlock {...faq.fees!} variant="inline" />
+      </div>
+    )}
+  </dd>
+  ```
+  The `fees` reuse needs a separate copy of the fees dictionary — easiest is to read it from `howIHelp.howItWorks.fees` rather than duplicating, e.g. pass `dict.howIHelp.howItWorks.fees` into the new render. Keeps a single source of truth for prices.
+- [ ] **Q1 ("How do online sessions work?")** — change "50 to 60 minutes" → **"45 to 60 minutes"** in both `en.ts` and `fr.ts`.
+- [ ] **Q5 ("What kind of issues do you support?")** — split the inline list into bullets. New shape:
+  ```ts
+  {
+    question: "What kind of issues do you support?",
+    answer: "I mainly support people with:",
+    answerBullets: [
+      "Anxiety and overthinking",
+      "Stress and burnout",
+      "Work-related pressure",
+      "Life transitions (moving abroad, career changes, parenthood)",
+      "Emotional overwhelm and difficulty switching off",
+    ],
+  }
+  ```
+  Mirror in `fr.ts` `[FR — Sarah to validate]`:
+  ```ts
+  {
+    question: "Quels types de problèmes accompagnez-vous ?",
+    answer: "J'accompagne principalement des personnes qui vivent :",
+    answerBullets: [
+      "Anxiété et ruminations",
+      "Stress et burnout",
+      "Pression professionnelle",
+      "Transitions de vie (expatriation, changement de carrière, parentalité)",
+      "Surcharge émotionnelle et difficulté à décrocher",
+    ],
+  }
+  ```
+- [ ] **New question, inserted *before* "Is online therapy more affordable?"** (i.e. as the new index 3 in the `items` array, pushing the affordability question to index 4):
+  ```ts
+  {
+    question: "How much does a session cost?",
+    answer: "An individual session is 60€.",
+    fees: true,  // FeesBlock will render the packagesLead + packages list
+  }
+  ```
+  FR `[FR — Sarah to validate]`:
+  ```ts
+  {
+    question: "Combien coûte une séance ?",
+    answer: "Une séance individuelle coûte 60€.",
+    fees: true,
+  }
+  ```
+- [ ] **Last question ("How do I get started?")** — change wording. EN: replace "You can book an initial session where we explore…" → **"You can book a discovery call where we explore…"**. FR mirror: `[FR — Sarah to validate]` "Vous pouvez réserver un appel découverte où nous explorons…"
+
+### 18.6. Blog post hero images
+
+These are pure frontmatter changes in `content/blog/{en,fr}/*.mdx`. Update both EN and FR variants of each post.
+
+| Post (EN slug / FR slug) | New `heroImage` value |
+|---|---|
+| `what-is-cbt` / `cest-quoi-tcc` | `/images/blog/what-is-cbt.jpg` (no path change — but the file behind it is overwritten in 18.0 with `Specialties.jpg`. Update `heroImageAlt` in both locales to reflect the new image content — e.g. "Calm therapeutic space" / "Espace thérapeutique apaisant".) |
+| `burnout-or-tired` / `burnout-ou-fatigue` | `/images/blog/burnout-or-tired.jpg` → `/images/issues-i-work-with.jpg` (point at the shared Home asset). Also update the FR file's `heroImage` to the same shared path, and refresh `heroImageAlt` in both. |
+| `matrescence` (EN) / `matrescence` (FR) | Sarah said "Matrescence : parents blog". Change `heroImage` to `/images/specialties-parenting.jpg` (overwritten in 18.0 with `Parents blog.jpg`). Update `heroImageAlt` in both. |
+| `online-therapy-research` / `therapie-en-ligne-recherche` | Sarah's "Parents : online therapy" comment maps the **Parents** topic article header to the "Online therapy" image. The closest match is the parents-topic post here — change `heroImage` to `/images/online-therapy.jpg`. Update `heroImageAlt` in both. |
+
+The legacy frontmatter image files (`burnout-or-tired.jpg`, `matrescence.jpg`, `online-therapy-research.jpg` and their FR equivalents in `public/images/blog/`) become orphaned once nothing references them — delete them in the same commit so the asset folder stays tidy.
+
+**Open question for Matt:** Sarah's notes only list the four posts above ("What is CBT", "Burnout", "Parents", "Matrescence"). The other two posts (`english-speaking-therapist-france` and `expat-anxiety` in EN, plus FR equivalents) keep their current headers — confirm that's intended.
+
+### 18.7. Verification before opening the PR
+
+- [ ] `npm run build` completes cleanly (catches any missing dictionary keys after the schema changes in 18.1, 18.3, 18.5)
+- [ ] `npm run lint` passes
+- [ ] Visit `/en` and `/fr` for every page — check no untranslated strings, especially the new audience card, About paragraph addition, FeesBlock, FAQ schema additions
+- [ ] Check the four blog posts' hero images render correctly with their new images
+- [ ] On Home: confirm the 4-card grid breathes correctly at 375 / 768 / 1024 / 1440 px
+- [ ] Surface the two open questions (drop-cap consistency on About + How I Help; "lady" image identification on How I Help) to Matt before merging
+- [ ] Update `MEMORY.md` / changelog if your workflow tracks copy edits
+
+### 18.8. What this punch list deliberately does *not* include
+
+- No structural / routing changes
+- No new pages, no new blog posts
+- No payment integration, Calendly rate updates, or Formspree changes — pricing is now explicit on the site, but Calendly itself stays as configured
+- No FR translations of new MDX bodies — only frontmatter `heroImage` and `heroImageAlt` are touched per post; body copy is unchanged
