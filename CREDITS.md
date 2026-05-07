@@ -11,7 +11,7 @@ The following photographs were provided by Sarah Cousin Roshay. All rights reser
 | public/images/how-i-help-2.jpg | How I Help hero |
 | public/images/how-i-help-3.jpg | How I Help "Common issues" thumbnail |
 | public/images/specialties-expats.jpg | My Specialties — expats card |
-| public/images/online-therapy.jpg | My Specialties — burnout card, Online-therapy blog post |
+| public/images/online-therapy.jpg | My Specialties — burnout card, online-therapy-research post (EN), therapie-en-ligne-recherche post (FR) |
 | public/images/specialties-parenting.jpg | My Specialties — parenting card, Matrescence blog post |
 | public/images/specialties.jpg | How I Help — "Who I work with" thumbnail |
 | public/images/blog/what-is-cbt.jpg | "What is CBT" blog post |
