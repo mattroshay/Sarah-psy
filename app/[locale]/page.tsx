@@ -5,7 +5,6 @@ import { getDictionary } from '@/lib/i18n'
 import { buildMetadata } from '@/lib/metadata'
 import { Hero } from '@/components/ui/Hero'
 import { Card } from '@/components/ui/Card'
-import { Testimonial } from '@/components/ui/Testimonial'
 import { Banner } from '@/components/ui/Banner'
 import { TintedImage } from '@/components/ui/TintedImage'
 
@@ -131,7 +130,8 @@ export default async function HomePage({ params }: Props) {
         </div>
       </section>
 
-      {/* Testimonials */}
+      {/* Testimonials — hidden per Sarah's May 11 review; re-enable when she supplies real client reviews. When un-commenting, also restore: import { Testimonial } from '@/components/ui/Testimonial' */}
+      {/*
       <section className="bg-warm py-16">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <h2 className="font-heading text-2xl md:text-3xl font-bold text-charcoal mb-8 text-center">
@@ -144,6 +144,7 @@ export default async function HomePage({ params }: Props) {
           </div>
         </div>
       </section>
+      */}
 
       {/* CTA banner */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16">
