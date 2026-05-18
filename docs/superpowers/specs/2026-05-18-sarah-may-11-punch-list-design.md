@@ -32,7 +32,11 @@ Locale is fixed per file (EN bodies link to `/en/contact`, FR bodies to `/fr/con
 
 ## 2. Blog content updates
 
-Two articles per topic. The existing `online-therapy-research.mdx` is **not** mentioned in Sarah's doc — keep as-is (no edits). The current `matrescence.mdx` is rewritten in place: new title, new body, slug stays `matrescence` for safety (zero risk of broken links since the site isn't in prod yet, and avoids a redirect we don't need). EN dates per Sarah's doc; FR dates mirror. All FR bodies tagged `[FR — Sarah to validate]` per the May 4 punch-list pattern.
+Two articles per topic. The existing `online-therapy-research.mdx` is **not** mentioned in Sarah's doc — keep as-is (no edits). The current `matrescence.mdx` is rewritten in place: new title, new body, slug stays `matrescence` for safety (zero risk of broken links since the site isn't in prod yet, and avoids a redirect we don't need). EN dates per Sarah's doc; FR dates mirror.
+
+**FR strategy — full translation, not placeholder.** Every FR body is a complete, idiomatic French translation of the corresponding new EN body — same heading structure, same paragraph order, same length. The single `[FR — Sarah to validate]` tag goes at the top of each translated MDX body (just under the frontmatter, as an HTML comment so it never renders), signalling that Sarah's pass is to refine wording — not to write copy from scratch. Sarah reviews and tweaks; she does not have to translate.
+
+Translation tone matches the May 4 work: warm, idiomatic, calibrated for a bilingual reader (not literal). Therapy terms use the established French equivalents already in the dictionaries (`TCC` for CBT, `burn-out`, `expatriation`, `matrescence` stays as-is per French usage). Keep Sarah's UK English idioms (e.g. "the body keeps score") rendered as their natural French equivalents, not transliterated.
 
 ### 2.1 Files modified
 
@@ -74,11 +78,11 @@ Replace with Sarah's wording (note "ambivalence of motherhood" — her red phras
 
 > "Parenthood changes everything. These posts cover perinatal anxiety, the **ambivalence of motherhood** and the emotional weight of raising children — with honesty and no judgement."
 
-FR mirror in `lib/i18n/fr.ts` `[FR — Sarah to validate]`:
+FR mirror in `lib/i18n/fr.ts` — full idiomatic translation, Sarah will refine, not write:
 
-> "La parentalité change tout. Ces articles abordent l'anxiété périnatale, **l'ambivalence de la maternité** et le poids émotionnel d'élever des enfants — avec honnêteté et sans jugement."
+> "La parentalité change tout. Ces articles abordent l'anxiété périnatale, l'ambivalence de la maternité et le poids émotionnel d'élever des enfants — avec honnêteté et sans jugement."
 
-(The bold is for the dictionary spec — not for the rendered output. Render as plain inline text.)
+The `[FR — Sarah to validate]` markers used in May 4 work were applied per dictionary key; for this content branch use a single HTML-comment marker at the top of each translated MDX body (under the frontmatter): `{/* FR — Sarah to validate */}`. The dict-level intros in `fr.ts` get an inline `// FR — Sarah to validate` comment on the line above the changed string. Either way, all translations are complete and shippable as-is; the markers only flag "Sarah's pass, not Matt's invention".
 
 ### 2.4 Related-posts cross-links
 
@@ -96,17 +100,17 @@ When swapping `matrescence` from "Matrescence: the identity shift" to "Perinatal
 **Modified:**
 - `app/[locale]/page.tsx` — comment out testimonials section.
 - `content/blog/en/expat-anxiety.mdx` — body rewrite.
-- `content/blog/fr/anxiete-expatriation.mdx` — body rewrite (FR placeholder).
+- `content/blog/fr/anxiete-expatriation.mdx` — full FR translation.
 - `content/blog/en/english-speaking-therapist-france.mdx` — body rewrite.
-- `content/blog/fr/therapeute-anglophone-france.mdx` — body rewrite (FR placeholder).
+- `content/blog/fr/therapeute-anglophone-france.mdx` — full FR translation.
 - `content/blog/en/what-is-cbt.mdx` — body rewrite.
-- `content/blog/fr/cest-quoi-tcc.mdx` — body rewrite (FR placeholder).
+- `content/blog/fr/cest-quoi-tcc.mdx` — full FR translation.
 - `content/blog/en/burnout-or-tired.mdx` — body rewrite + expansion.
-- `content/blog/fr/burnout-ou-fatigue.mdx` — body rewrite (FR placeholder).
+- `content/blog/fr/burnout-ou-fatigue.mdx` — full FR translation.
 - `content/blog/en/matrescence.mdx` — title + body + frontmatter (`title`, `excerpt`, `keyword`, `heroImageAlt`) replaced.
-- `content/blog/fr/matrescence.mdx` — same, FR placeholder.
+- `content/blog/fr/matrescence.mdx` — same shape, full FR translation.
 - `lib/i18n/en.ts` — `blog.sections.parents.intro` updated.
-- `lib/i18n/fr.ts` — `blog.sections.parents.intro` updated (FR placeholder).
+- `lib/i18n/fr.ts` — `blog.sections.parents.intro` updated to the new FR translation.
 - `lib/routes.ts` or wherever the new post's slug map lives — register the new EN/FR slugs.
 
 **Unchanged:**
@@ -138,7 +142,7 @@ Each step is reversible — content edits never touch routing or components beyo
   - `/en` and `/fr` home — testimonials section absent, page flows naturally (no orphan whitespace, no broken padding).
   - `/en/blog` and `/fr/blog` — parents-section intro shows the new "ambivalence" wording.
   - `/en/blog/expat-anxiety`, `/en/blog/english-speaking-therapist-france`, `/en/blog/what-is-cbt`, `/en/blog/burnout-or-tired`, `/en/blog/matrescence` (now perinatal-anxiety title), `/en/blog/why-your-child-triggers-you` — render with Sarah's bodies; hero images intact; related-posts cross-links resolve.
-  - FR equivalents render with the `[FR — Sarah to validate]` markers visible.
+  - FR equivalents render with the full French translations as live body text (no visible markers — `{/* FR — Sarah to validate */}` lives in the MDX source as an HTML comment that MDX strips at render).
   - Inline "Book a free discovery call" links in each post point at `NEXT_PUBLIC_CALENDLY_URL` (or `/<locale>/contact` when env var unset).
   - Closing `<Banner>` CTA still present on every post — not removed by the rewrite.
 
@@ -152,7 +156,7 @@ These are flagged so the implementing agent does not silently invent answers:
 2. **Date for the new post** — not given in doc. Defaulting to today (2026-05-18) in `publishedAt`. Sarah confirms or replaces.
 3. **`publishedAt` for the english-speaking-therapist-france rewrite** — Sarah's doc only dates the *expat anxiety* article (22 Jan 2026). This post keeps its existing 2026-01-15 date. Sarah confirms or replaces.
 4. **Keyword for the new post** — placeholder `"parenting triggers therapy"`. Sarah may want something else.
-5. **FR body wording** — every new FR body is tagged `[FR — Sarah to validate]`. Sarah refines before public launch.
+5. **FR body wording** — every new FR body is a complete French translation of the new EN body, tagged with a top-of-file `{/* FR — Sarah to validate */}` comment. Sarah refines wording at her next review — she does not need to translate from scratch.
 
 ---
 
