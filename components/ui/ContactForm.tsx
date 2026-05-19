@@ -33,6 +33,15 @@ export function ContactForm({ contact, forms, endpoint }: ContactFormProps) {
     e.preventDefault()
     const form = e.currentTarget
     const data = new FormData(form)
+
+    // Honeypot — if the hidden _gotcha field has a value, this is a bot.
+    // Belt-and-braces alongside Formspree's server-side discard: show success
+    // state and silently no-op so the bot moves on without retrying.
+    if (data.get('_gotcha')) {
+      setState('success')
+      return
+    }
+
     const errs = validate(data)
 
     if (Object.keys(errs).length > 0) {
@@ -80,6 +89,10 @@ export function ContactForm({ contact, forms, endpoint }: ContactFormProps) {
         aria-hidden="true"
         className="absolute -left-[9999px] h-0 w-0 opacity-0"
       />
+      {/* Formspree subject template. Hidden fields are user-editable in DevTools,
+          but the cost of a determined spammer renaming submissions is "Sarah sees
+          a wrong subject in her inbox" — small enough not to justify moving subject
+          config server-side. Reviewed and kept per Copilot feedback on PR #6. */}
       <input type="hidden" name="_subject" value="sarah-psy.com — new contact form submission" />
 
       <div>
