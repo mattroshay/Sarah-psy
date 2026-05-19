@@ -96,7 +96,13 @@ export default async function BlogPostPage({ params }: Props) {
           <h2 className="font-heading text-2xl font-bold text-charcoal mb-8">
             {blog.relatedPosts}
           </h2>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div
+            className={
+              related.length === 1
+                ? 'max-w-md mr-auto'
+                : 'grid gap-6 sm:grid-cols-2 lg:grid-cols-3'
+            }
+          >
             {related.map(p => (
               <BlogPostCard
                 key={p.slug}
