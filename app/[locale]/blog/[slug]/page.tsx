@@ -99,7 +99,7 @@ export default async function BlogPostPage({ params }: Props) {
           <div
             className={
               related.length === 1
-                ? 'max-w-md mx-auto'
+                ? 'max-w-md mr-auto'
                 : 'grid gap-6 sm:grid-cols-2 lg:grid-cols-3'
             }
           >
