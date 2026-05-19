@@ -71,6 +71,17 @@ export function ContactForm({ contact, forms, endpoint }: ContactFormProps) {
 
   return (
     <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-5">
+      {/* Formspree honeypot — bots fill it, humans don't. Off-screen rather than display:none so bots that skip hidden fields still hit it. */}
+      <input
+        type="text"
+        name="_gotcha"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        className="absolute -left-[9999px] h-0 w-0 opacity-0"
+      />
+      <input type="hidden" name="_subject" value="sarah-psy.com — new contact form submission" />
+
       <div>
         <label className="block text-sm font-medium text-charcoal mb-1.5" htmlFor="contact-name">
           {fields.name}
@@ -105,7 +116,7 @@ export function ContactForm({ contact, forms, endpoint }: ContactFormProps) {
           aria-invalid={!!errors.email}
         />
         {errors.email && (
-          <p id="contact-email-error" role="alert" className="mt-xs text-xs text-red-600">
+          <p id="contact-email-error" role="alert" className="mt-1 text-xs text-red-600">
             {errors.email}
           </p>
         )}

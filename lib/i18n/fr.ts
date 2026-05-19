@@ -309,6 +309,7 @@ const fr: Dictionary = {
     formHeading: "Envoyer un message",
     calendlyHeading: "Réserver",
     calendlyFallback: "Lien de réservation non configuré.",
+    phoneLabel: "Téléphone",
     fields: {
       name: "Votre nom",
       email: "Votre e-mail",

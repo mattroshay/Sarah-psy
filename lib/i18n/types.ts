@@ -121,6 +121,7 @@ export interface ContactDict {
   formHeading: string
   calendlyHeading: string
   calendlyFallback: string
+  phoneLabel: string
   fields: {
     name: string
     email: string
