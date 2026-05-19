@@ -143,7 +143,7 @@ Each step is reversible — content edits never touch routing or components beyo
   - `/en/blog` and `/fr/blog` — parents-section intro shows the new "ambivalence" wording.
   - `/en/blog/expat-anxiety`, `/en/blog/english-speaking-therapist-france`, `/en/blog/what-is-cbt`, `/en/blog/burnout-or-tired`, `/en/blog/matrescence` (now perinatal-anxiety title), `/en/blog/why-your-child-triggers-you` — render with Sarah's bodies; hero images intact; related-posts cross-links resolve.
   - FR equivalents render with the full French translations as live body text (no visible markers — `{/* FR — Sarah to validate */}` lives in the MDX source as an HTML comment that MDX strips at render).
-  - Inline "Book a free discovery call" links in each post point at `NEXT_PUBLIC_CALENDLY_URL` (or `/<locale>/contact` when env var unset).
+  - Inline "Book a free discovery call" links in each post point at the locale-specific contact page (`/en/contact` in EN files, `/fr/contact` in FR files).
   - Closing `<Banner>` CTA still present on every post — not removed by the rewrite.
 
 ---
