@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { LOCALES, type Locale } from '@/lib/routes'
 import { getDictionary } from '@/lib/i18n'
 import { getAllPosts, getPost } from '@/lib/blog'
+import { formatPublishDate } from '@/lib/formatDate'
 import { BlogPostCard } from '@/components/ui/BlogPostCard'
 import { Banner } from '@/components/ui/Banner'
 
@@ -80,10 +81,7 @@ export default async function BlogPostPage({ params }: Props) {
           {post.meta.title}
         </h1>
         <p className="text-muted text-sm">
-          {new Date(post.meta.publishedAt).toLocaleDateString(
-            locale === 'fr' ? 'fr-FR' : 'en-GB',
-            { year: 'numeric', month: 'long', day: 'numeric' }
-          )}
+          {formatPublishDate(post.meta.publishedAt, locale as Locale)}
         </p>
       </header>
 

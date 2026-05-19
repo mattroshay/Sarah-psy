@@ -291,8 +291,9 @@ const fr: Dictionary = {
       },
       parents: {
         heading: "Pour les parents et les nouvelles mères",
+        // FR — Sarah to validate
         intro:
-          "La parentalité change tout. Ces articles parlent d'anxiété périnatale, de matrescence et du poids émotionnel d'élever des enfants — avec honnêteté et sans jugement.",
+          "La parentalité change tout. Ces articles abordent l'anxiété périnatale, l'ambivalence de la maternité et le poids émotionnel d'élever des enfants — avec honnêteté et sans jugement.",
       },
     },
     readMore: "Lire l'article",

@@ -291,7 +291,7 @@ const en: Dictionary = {
       parents: {
         heading: "For Parents & New Mothers",
         intro:
-          "Parenthood changes everything. These posts cover perinatal anxiety, matrescence, and the emotional weight of raising children — with honesty and no judgement.",
+          "Parenthood changes everything. These posts cover perinatal anxiety, the ambivalence of motherhood and the emotional weight of raising children — with honesty and no judgement.",
       },
     },
     readMore: "Read article",

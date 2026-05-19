@@ -2,6 +2,7 @@ import Image from 'next/image'
 import type { PostMeta } from '@/lib/types'
 import type { Locale } from '@/lib/routes'
 import { cn } from '@/lib/cn'
+import { formatPublishDate } from '@/lib/formatDate'
 
 interface BlogPostCardProps {
   post: PostMeta
@@ -42,7 +43,7 @@ export function BlogPostCard({
       )}
       <div className="p-5 flex flex-col gap-3 flex-1">
         <p className="text-xs text-muted uppercase tracking-wide">
-          {post.publishedAt} · {readingTimeLabel}
+          {formatPublishDate(post.publishedAt, locale)} · {readingTimeLabel}
         </p>
         <h3 className="font-heading text-lg font-bold text-charcoal leading-snug">
           <a href={href} className="hover:text-sage transition-colors">
