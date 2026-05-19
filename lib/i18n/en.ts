@@ -307,7 +307,6 @@ const en: Dictionary = {
     formHeading: "Send a message",
     calendlyHeading: "Book",
     calendlyFallback: "Booking link not configured.",
-    phoneLabel: "Phone",
     fields: {
       name: "Your name",
       email: "Your email",

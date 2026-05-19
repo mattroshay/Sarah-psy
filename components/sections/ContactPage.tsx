@@ -6,7 +6,6 @@ interface ContactPageProps {
   forms: FormsDict
   formspreeEndpoint?: string
   calendlyUrl?: string
-  contactPhone?: string
 }
 
 export function ContactPage({
@@ -14,22 +13,9 @@ export function ContactPage({
   forms,
   formspreeEndpoint,
   calendlyUrl,
-  contactPhone,
 }: ContactPageProps) {
   return (
-    <>
-      {contactPhone && (
-        <p className="max-w-6xl mx-auto px-4 sm:px-6 -mt-4 mb-2 text-sm text-muted">
-          {contact.phoneLabel}:{' '}
-          <a
-            href={`tel:${contactPhone.replace(/\s+/g, '')}`}
-            className="text-sage hover:underline"
-          >
-            {contactPhone}
-          </a>
-        </p>
-      )}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16 grid lg:grid-cols-2 gap-12">
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16 grid lg:grid-cols-2 gap-12">
       {/* Form */}
       <section>
         <h2 className="font-heading text-2xl font-bold text-charcoal mb-6">
@@ -62,6 +48,5 @@ export function ContactPage({
         )}
       </section>
     </div>
-    </>
   )
 }
