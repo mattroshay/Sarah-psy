@@ -44,3 +44,10 @@ h1, h2, h3, h4, h5, h6 {
   outline: 2px solid var(--color-sage);
   outline-offset: 3px;
 }
+
+/* Calendly popup widget: hide the outer overlay spinner so only the iframe's
+   internal loading dots show. Calendly stacks two sets of three dots while the
+   booking page loads — its overlay spinner plus the iframe's own spinner. */
+.calendly-overlay .calendly-spinner {
+  display: none;
+}
