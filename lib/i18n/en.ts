@@ -305,7 +305,10 @@ const en: Dictionary = {
     pageSubtitle:
       "Send a message, book a free 15-minute discovery call or book a session — whichever feels easier.",
     formHeading: "Send a message",
-    calendlyHeading: "Book",
+    calendlyDiscoveryHeading: "Book a discovery call",
+    calendlyDiscoveryDescription: "Free 15-minute discovery call to explore how we can work together.",
+    calendlySessionHeading: "Book a session",
+    calendlySessionDescription: "Schedule a 1-hour therapy session.",
     calendlyFallback: "Booking link not configured.",
     fields: {
       name: "Your name",

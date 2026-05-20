@@ -307,7 +307,10 @@ const fr: Dictionary = {
     pageSubtitle:
       "Envoyez-moi un message, réservez un appel découverte gratuit de 15 minutes ou réservez une séance — selon ce qui vous convient le mieux.",
     formHeading: "Envoyer un message",
-    calendlyHeading: "Réserver",
+    calendlyDiscoveryHeading: "Réserver un appel découverte",
+    calendlyDiscoveryDescription: "[FR — Sarah to validate] Appel découverte gratuit de 15 minutes pour explorer comment nous pouvons travailler ensemble.",
+    calendlySessionHeading: "Réserver une séance",
+    calendlySessionDescription: "[FR — Sarah to validate] Planifier une séance de thérapie d'une heure.",
     calendlyFallback: "Lien de réservation non configuré.",
     fields: {
       name: "Votre nom",
