@@ -1,6 +1,6 @@
 'use client'
 
-import type { ComponentProps, MouseEvent, ReactNode } from 'react'
+import type { AnchorHTMLAttributes, ComponentProps, MouseEvent, ReactNode } from 'react'
 import { Button } from './Button'
 
 declare global {
@@ -9,16 +9,12 @@ declare global {
   }
 }
 
-type ButtonProps = ComponentProps<typeof Button>
-
-interface CalendlyButtonProps {
-  href: string
-  children: ReactNode
-  variant?: ButtonProps['variant']
-  size?: ButtonProps['size']
-  className?: string
-  onClick?: (e: MouseEvent<HTMLAnchorElement>) => void
-}
+type CalendlyButtonProps = Pick<ComponentProps<typeof Button>, 'variant' | 'size'> &
+  Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'href' | 'onClick' | 'target' | 'rel'> & {
+    href: string
+    children: ReactNode
+    onClick?: (e: MouseEvent<HTMLAnchorElement>) => void
+  }
 
 function isCalendlyUrl(href: string): boolean {
   try {
@@ -48,6 +44,9 @@ export function CalendlyButton({
   const handleClick = (e: MouseEvent<HTMLAnchorElement>) => {
     onClick?.(e)
     if (e.defaultPrevented) return
+    // Let the browser handle middle-click, Cmd/Ctrl+Click, Shift/Alt+Click —
+    // users with those modifiers want to open the link in a new tab/window.
+    if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return
     if (typeof window === 'undefined') return
     if (typeof window.Calendly?.initPopupWidget !== 'function') return
     e.preventDefault()
