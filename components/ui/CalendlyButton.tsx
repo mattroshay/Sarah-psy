@@ -5,7 +5,7 @@ import { Button } from './Button'
 
 declare global {
   interface Window {
-    Calendly?: { initPopupWidget: (opts: { url: string }) => void }
+    Calendly?: { initPopupWidget?: (opts: { url: string }) => void }
   }
 }
 
@@ -30,7 +30,7 @@ export function CalendlyButton({
 
   if (!isCalendly) {
     return (
-      <Button href={href} {...rest}>
+      <Button href={href} onClick={onClick} {...rest}>
         {children}
       </Button>
     )
@@ -39,7 +39,8 @@ export function CalendlyButton({
   const handleClick = (e: MouseEvent<HTMLAnchorElement>) => {
     onClick?.(e)
     if (e.defaultPrevented) return
-    if (typeof window === 'undefined' || !window.Calendly) return
+    if (typeof window === 'undefined') return
+    if (typeof window.Calendly?.initPopupWidget !== 'function') return
     e.preventDefault()
     window.Calendly.initPopupWidget({ url: href })
   }

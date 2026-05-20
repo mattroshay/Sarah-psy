@@ -68,6 +68,7 @@ export default async function LocaleLayout({ children, params }: Props) {
       <link
         rel="stylesheet"
         href="https://assets.calendly.com/assets/external/widget.css"
+        precedence="default"
       />
       <Script
         src="https://assets.calendly.com/assets/external/widget.js"
