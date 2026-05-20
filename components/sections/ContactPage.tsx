@@ -35,7 +35,10 @@ export function ContactPage({
         {/* Calendly Sections - span 2 columns on desktop, full width on mobile */}
         <div className="lg:col-span-2 grid md:grid-cols-2 gap-8">
           {/* Discovery Call */}
-          <section>
+          {/* md:flex+flex-col + md:mt-auto on the embed below aligns the two iframe tops on desktop: */}
+          {/* the grid row equalises section heights, then mt-auto anchors each iframe to the bottom */}
+          {/* of its (equal-height) cell. Below md the sections stack so no alignment is needed. */}
+          <section className="md:flex md:flex-col">
             <h2 className="font-heading text-2xl font-bold text-charcoal mb-2">
               {contact.calendlyDiscoveryHeading}
             </h2>
@@ -48,19 +51,19 @@ export function ContactPage({
               <iframe
                 src={`${discoveryCalendlyUrl}?embed_type=Inline&hide_event_type_details=1`}
                 title={contact.calendlyDiscoveryHeading}
-                className="w-full rounded-xl border border-border"
+                className="w-full rounded-xl border border-border md:mt-auto"
                 style={{ minHeight: 620 }}
                 loading="lazy"
               />
             ) : (
-              <div className="rounded-xl border border-border bg-warm p-8 text-center text-muted text-sm">
+              <div className="rounded-xl border border-border bg-warm p-8 text-center text-muted text-sm md:mt-auto">
                 {contact.calendlyFallback}
               </div>
             )}
           </section>
 
           {/* Session Booking */}
-          <section>
+          <section className="md:flex md:flex-col">
             <h2 className="font-heading text-2xl font-bold text-charcoal mb-2">
               {contact.calendlySessionHeading}
             </h2>
@@ -73,12 +76,12 @@ export function ContactPage({
               <iframe
                 src={`${sessionCalendlyUrl}?embed_type=Inline&hide_event_type_details=1`}
                 title={contact.calendlySessionHeading}
-                className="w-full rounded-xl border border-border"
+                className="w-full rounded-xl border border-border md:mt-auto"
                 style={{ minHeight: 620 }}
                 loading="lazy"
               />
             ) : (
-              <div className="rounded-xl border border-border bg-warm p-8 text-center text-muted text-sm">
+              <div className="rounded-xl border border-border bg-warm p-8 text-center text-muted text-sm md:mt-auto">
                 {contact.calendlyFallback}
               </div>
             )}
