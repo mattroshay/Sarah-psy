@@ -5,9 +5,9 @@ const fr: Dictionary = {
   nav: {
     home: "Accueil",
     about: "À propos",
-    howIHelp: "Comment j'accompagne",
+    howIHelp: "Mon approche",
     mySpecialties: "Mes spécialités",
-    faq: "FAQ",
+    faq: "Questions",
     blog: "Blog",
     contact: "Contact",
     bookCall: "Réserver",
@@ -15,45 +15,45 @@ const fr: Dictionary = {
 
   home: {
     heroTagline:
-      "Vous sentir mieux. Penser plus clairement. Construire une vie plus équilibrée.",
+      "Se sentir mieux. Penser plus clairement. Construire une vie plus équilibrée.",
     heroSubhead:
-      "Thérapie TCC en ligne en français et en anglais — pour les adultes et les adolescents qui traversent l'anxiété, le stress et les transitions de vie. Mes spécialités : expatriés, parents et professionnels confrontés au stress et au burn-out.",
+      "Thérapie TCC en ligne, en français et en anglais, pour adultes et adolescents. Accompagnement spécialisé en anxiété, stress, transitions de vie, exigences de la parentalité, pression professionnelle et burn-out.",
     heroPrimary: "Réserver un appel découverte gratuit",
     heroSecondary: "En savoir plus sur moi",
     introHeading:
-      "Vivez-vous de l'anxiété, du stress, une faible estime de vous, ou des difficultés émotionnelles ?",
+      "Vivez-vous de l'anxiété, du stress, une faible estime de vous-même ou des difficultés émotionnelles ?",
     introBody:
-      "Vous n'avez pas à le traverser seul·e. La thérapie peut vous aider à mieux comprendre ce que vous vivez et à développer des outils concrets pour retrouver équilibre et bien-être.",
+      "Vous n'avez pas à traverser cela seul·e. La thérapie peut vous aider à mieux comprendre ce que vous vivez et à développer des outils concrets pour retrouver un équilibre et un mieux-être.",
     aboutStripHeading: "Une thérapie qui vous parle",
     aboutStripBody:
-      "Je suis thérapeute bilingue en thérapie cognitivo-comportementale (TCC). J'ai vécu l'expatriation, traversé la pression du monde de l'entreprise, et je suis mère. Mon approche est collaborative, pratique et orientée solutions, dans un espace sûr, bienveillant et sans jugement où vous pouvez explorer vos défis et avancer à votre rythme. Mon parcours diversifié, mon expérience en entreprise et mes certifications en psychothérapie me permettent de vous proposer une approche adaptée à vos besoins et à vos objectifs.",
+      "Je suis thérapeute bilingue en thérapie cognitivo-comportementale (TCC). J'ai vécu l'expatriation, connu la pression du monde de l'entreprise et je suis mère. Mon approche est collaborative, pratique et orientée vers les solutions. Je vous accueille avec bienveillance, sans jugement, pour que vous puissiez explorer vos difficultés et avancer à votre rythme. Mon parcours diversifié, mon expérience en entreprise et mes certifications en psychothérapie me permettent de vous proposer un accompagnement adapté à vos besoins et à vos objectifs.",
     credentialBadges: [
-      "Certifiée TCC",
-      "Expérience d'expatriation vécue",
-      "15 ans en entreprise",
-      "Certifiée parentalité",
+      "Certifiée en TCC",
+      "Expérience vécue de l'expatriation",
+      "15 ans d'expérience en entreprise",
+      "Certifiée en accompagnement à la parentalité",
     ],
     audienceHeading: "Avec qui je travaille",
     audience: {
       expats: {
-        label: "Expatrié·e·s cherchant un·e thérapeute qui parle leur langue",
+        label: "Expatrié·e·s à la recherche d'un·e thérapeute qui parle leur langue",
         description:
-          "Isolement, choc culturel, identité et le poids invisible de construire une vie ailleurs.",
+          "Isolement, choc culturel, questionnements identitaires et poids invisible de construire une vie ailleurs.",
       },
       professionals: {
         label: "Personnes confrontées à la pression professionnelle ou au burn-out",
         description:
-          "Anxiété, perfectionnisme, syndrome de l'imposteur — et l'épuisement de tenir coûte que coûte.",
+          "Anxiété, perfectionnisme, syndrome de l'imposteur — et l'épuisement de devoir toujours tenir.",
       },
       parents: {
         label: "Parents qui se sentent dépassé·e·s",
         description:
-          "Anxiété périnatale, matrescence et la pression de tout assumer sans en parler.",
+          "Anxiété périnatale, ambivalence de la maternité et pression de tout gérer sans en parler.",
       },
       stuck: {
-        label: "Toute personne qui se sent bloquée",
+        label: "Personnes qui se sentent bloquées",
         description:
-          "Celles et ceux qui sentent que quelque chose ne va pas sans pouvoir le nommer — qui veulent mieux se comprendre, sortir de schémas anciens et vivre avec plus d'intention. [FR — Sarah to validate]",
+          "Celles et ceux qui sentent que quelque chose ne va pas sans pouvoir le nommer — et qui souhaitent mieux se comprendre, sortir de schémas anciens et vivre de manière plus alignée.",
       },
     },
     testimonialsHeading: "Ce que disent les patient·e·s",
@@ -74,7 +74,7 @@ const fr: Dictionary = {
         attribution: "M., Parent",
       },
     ],
-    ctaBannerHeading: "Prête à faire le premier pas ?",
+    ctaBannerHeading: "Prêt·e à faire le premier pas ?",
     ctaBannerBody:
       "Un appel découverte gratuit de 15 minutes vous permet de poser vos questions et de voir si travailler ensemble vous convient — sans engagement.",
     ctaBannerButton: "Réserver votre appel découverte gratuit",
@@ -86,41 +86,41 @@ const fr: Dictionary = {
       "Thérapeute TCC bilingue avec une expérience vécue de l'expatriation, du stress professionnel et de la parentalité.",
     storyHeading: "De l'entreprise à la psychologie",
     storyParagraphs: [
-      "Pendant quinze ans, j'ai évolué dans des environnements d'entreprise — dans des rôles qui exigeaient performance, résilience et la capacité d'absorber la pression sans le montrer. Je sais ce que c'est que de réussir en apparence tout en luttant en silence. En travaillant en communication interne et en engagement des collaborateurs, mon rôle était d'accompagner des personnes confrontées à des changements organisationnels, à la pression professionnelle et à des défis croissants liés au stress, au burn-out et à l'équilibre vie professionnelle/vie personnelle.",
-      "Cette expérience m'a donné une compréhension profonde de l'impact psychologique et émotionnel des environnements professionnels modernes, et m'a naturellement conduite à me former en psychologie et en psychothérapie, en obtenant une certification en Thérapie Cognitivo-Comportementale et en bâtissant une pratique fondée à la fois sur la rigueur clinique et l'expérience du monde réel. [FR — Sarah to validate]",
-      "Je suis également certifiée en soutien parental. Je crois qu'accompagner les parents est particulièrement important dans le monde d'aujourd'hui. Être parent n'est pas facile — je le suis moi-même, et je comprends. Quand les parents se sentent soutenus, cela aide leurs enfants à grandir de façon plus saine et plus confiante. Aujourd'hui, je combine des outils thérapeutiques fondés sur des données probantes avec une compréhension solide des dynamiques professionnelles et familiales pour offrir une approche pratique et personnalisée.",
-      "Ayant grandi dans un environnement international et vécu de nombreuses années à l'étranger, j'ai un parcours multiculturel. Je travaille avec aisance avec des expatriés et des patients culturellement divers, en proposant la thérapie en français comme en anglais.",
+      "Pendant quinze ans, j'ai évolué dans des environnements exigeants, où la performance, la résilience et la capacité à gérer la pression étaient essentielles. Je sais ce que c'est que de réussir en apparence tout en luttant intérieurement. En travaillant dans la communication interne et l'engagement des collaborateurs, j'ai accompagné des personnes confrontées aux changements organisationnels, à la pression professionnelle et aux défis croissants liés au stress, au burn-out et à l'équilibre entre vie professionnelle et vie personnelle.",
+      "Cette expérience m'a permis de développer une compréhension approfondie de l'impact psychologique et émotionnel des environnements de travail modernes. Elle m'a naturellement conduite à me former en psychologie et en psychothérapie, en obtenant une certification en thérapie cognitivo-comportementale (TCC) et en développant une pratique fondée à la fois sur la rigueur clinique et l'expérience du terrain.",
+      "Je suis également certifiée en accompagnement à la parentalité. Je crois profondément qu'accompagner les parents est essentiel dans le monde d'aujourd'hui. Être parent n'est pas simple — je le suis moi-même, et je comprends les défis que cela représente. Lorsque les parents se sentent soutenus, cela contribue au développement plus serein et plus confiant de leurs enfants. Aujourd'hui, j'associe des outils thérapeutiques fondés sur des approches validées scientifiquement à une compréhension concrète des dynamiques professionnelles et familiales, afin de proposer un accompagnement pratique, humain et personnalisé.",
+      "Ayant grandi dans un environnement international et vécu de nombreuses années à l'étranger, j'ai un parcours multiculturel. J'accompagne avec aisance des expatriés et des personnes issues de cultures diverses, en proposant des thérapies en français et en anglais.",
     ],
     credentialsHeading: "Mes certifications et affiliations",
     credentials: [
-      "Thérapeute TCC certifiée par l'EFPP, e-faculté de Psychologie et de Psychanalyse, institut de référence basé en France",
-      "Certification en soutien à la parentalité de l'EFPP",
-      "FAA Level 3 Award en supervision des Premiers Secours en Santé Mentale, délivré par le FFA First Aid Awards Ltd",
+      "Thérapeute TCC certifiée par l'EFPP — E-Faculté de Psychologie et Psychanalyse, institut de référence basé en France",
+      "Certification en accompagnement à la parentalité — EFPP",
+      "FAA Level 3 Award en supervision des Premiers Secours en Santé Mentale, délivré par FAA First Aid Awards Ltd",
       "Membre de la FNP — Fédération Nationale de Psychothérapie",
-      "Bachelor in Business Administration (BBA) de l'ESSEC Business School, France",
+      "Bachelor in Business Administration (BBA) — ESSEC Business School, France",
     ],
   },
 
   howIHelp: {
-    pageTitle: "Comment j'accompagne",
+    pageTitle: "Mon approche",
     pageSubtitle:
-      "J'utilise la thérapie cognitivo-comportementale (TCC) pour vous aider à comprendre l'anxiété ou les défis que vous traversez, à réduire la surcharge et à construire des schémas plus sains.",
+      "J'utilise la thérapie cognitivo-comportementale (TCC) pour vous aider à mieux comprendre l'anxiété ou les difficultés que vous traversez, réduire la surcharge mentale et construire des schémas plus sains.",
     intro:
-      "J'utilise la thérapie cognitivo-comportementale (TCC) pour vous aider à comprendre l'anxiété ou les défis que vous traversez, à réduire la surcharge et à construire des schémas plus sains. J'accompagne les professionnels, les expatriés et les parents qui traversent l'anxiété, le stress, des difficultés émotionnelles ou un burn-out, pour retrouver leur équilibre.",
+      "J'utilise la thérapie cognitivo-comportementale (TCC) pour vous aider à mieux comprendre l'anxiété ou les difficultés que vous traversez, réduire la surcharge mentale et construire des schémas plus sains. J'accompagne les professionnels, les expatriés et les parents confrontés à l'anxiété, au stress, aux difficultés émotionnelles ou au burn-out, afin de retrouver un meilleur équilibre.",
     cbt: {
       heading: "Qu'est-ce que la thérapie cognitivo-comportementale (TCC) ?",
       paragraphs: [
         "La thérapie cognitivo-comportementale (TCC) est une approche thérapeutique scientifiquement validée, largement utilisée pour traiter l'anxiété, le stress et de nombreuses difficultés émotionnelles.",
-        "La TCC s'intéresse à l'interaction entre les pensées, les émotions et les comportements. Parfois, des schémas de pensée ou des comportements peu aidants peuvent maintenir ou intensifier la détresse.",
+        "La TCC s'intéresse aux liens entre les pensées, les émotions et les comportements. Certains schémas de pensée ou comportements peuvent parfois entretenir ou intensifier la souffrance émotionnelle.",
       ],
       helpsYouLead: "La TCC vous aide à :",
       helpsYou: [
         "identifier les schémas qui entretiennent les difficultés",
-        "mieux comprendre comment fonctionne votre esprit",
+        "mieux comprendre votre fonctionnement émotionnel",
         "développer des stratégies d'adaptation plus saines",
-        "créer des changements concrets et durables au quotidien",
+        "mettre en place des changements concrets et durables dans votre quotidien",
       ],
-      closing: "La TCC est une thérapie structurée, pratique et orientée vers des objectifs.",
+      closing: "La TCC est une approche structurée, pratique et orientée vers des objectifs concrets.",
     },
     whoIWorkWith: {
       heading: "Avec qui je travaille",
@@ -130,28 +130,28 @@ const fr: Dictionary = {
       suitable: [
         "vous sentez submergé·e par le stress ou l'anxiété",
         "traversez une période de vie difficile",
-        "souhaitez renforcer votre confiance et votre résilience émotionnelle",
-        "cherchez des stratégies concrètes pour mieux faire face",
+        "souhaitez renforcer votre confiance en vous et votre résilience émotionnelle",
+        "recherchez des stratégies concrètes pour mieux faire face aux difficultés",
       ],
       closing:
-        "Comme toutes les séances ont lieu en ligne, la thérapie reste accessible où que vous soyez.",
+        "Toutes les séances ayant lieu en ligne, la thérapie reste accessible où que vous soyez.",
     },
     commonIssues: {
-      heading: "Les difficultés que j'accompagne couramment",
-      lead: "J'accompagne fréquemment des personnes qui vivent :",
+      heading: "Les difficultés que j'accompagne fréquemment",
+      lead: "J'accompagne notamment des personnes confrontées à :",
       items: [
-        "l'anxiété et les difficultés liées à l'anxiété",
+        "l'anxiété et les troubles anxieux",
         "le stress et le stress chronique",
-        "le burn-out et la pression liée au travail",
-        "une faible estime de soi et un manque de confiance",
+        "le burn-out et la pression professionnelle",
+        "une faible estime de soi et un manque de confiance en soi",
         "des difficultés de régulation émotionnelle",
-        "des défis relationnels",
+        "des difficultés relationnelles",
         "des transitions de vie et des changements personnels",
         "des défis liés à l'expatriation",
-        "des phobies et des addictions",
+        "certaines phobies et comportements addictifs",
       ],
       closing:
-        "Chaque parcours thérapeutique est adapté à votre histoire, vos besoins et vos objectifs.",
+        "Chaque accompagnement est adapté à votre histoire, vos besoins et vos objectifs.",
     },
     howItWorks: {
       heading: "Comment se déroule la thérapie",
@@ -175,18 +175,18 @@ const fr: Dictionary = {
           "développer des stratégies d'adaptation concrètes",
         ],
         closing:
-          "La TCC inclut souvent des outils et exercices pratiques à essayer entre les séances, pour ancrer le changement dans la durée.",
+          "La TCC inclut souvent des outils et exercices pratiques à expérimenter entre les séances afin d'ancrer durablement les changements.",
       },
       fees: {
         heading: "Tarifs",
         sessionLength:
-          "Les séances durent généralement de 45 à 60 minutes et se tiennent en visioconférence sécurisée.",
+          "Les séances durent généralement entre 45 et 60 minutes et se déroulent en visioconférence sécurisée.",
         feeLine: `Tarif : ${FEES.singleSession}€ par séance`,
         packagesLead:
-          "Je propose également des forfaits pour alléger la dimension financière de la thérapie. [FR — Sarah to validate]",
+          "Je propose également des forfaits afin de rendre l'accompagnement plus accessible financièrement.",
         packages: [
-          `4 séances à ${FEES.package4}€`,
-          `8 séances à ${FEES.package8}€`,
+          `4 séances : ${FEES.package4}€`,
+          `8 séances : ${FEES.package8}€`,
         ],
       },
     },
@@ -195,24 +195,24 @@ const fr: Dictionary = {
   mySpecialties: {
     pageTitle: "Mes spécialités",
     pageSubtitle:
-      "Domaines dans lesquels je me spécialise — chacun ancré dans une formation professionnelle et une expérience personnelle.",
+      "Des domaines d'accompagnement nourris à la fois par une formation professionnelle et une expérience vécue.",
     services: {
       expats: {
         title: "Expatriés",
         description:
-          "Isolement, choc culturel, bouleversements identitaires et tensions liées à la construction d'une vie à l'étranger — complexe et souvent invisible. Je l'ai vécu.",
+          "Isolement, choc culturel, questionnements identitaires et tensions liées à la construction d'une vie à l'étranger — des expériences souvent complexes et invisibles pour l'entourage. Je les connais de l'intérieur.",
         learnMore: "Lire la suite",
       },
       burnout: {
         title: "Burn-out et stress professionnel",
         description:
-          "Anxiété, perfectionnisme et épuisement lié à la haute performance. Quinze ans en entreprise — je connais votre monde de l'intérieur.",
+          "Anxiété, perfectionnisme, pression constante et épuisement liés aux environnements exigeants. Après quinze ans en entreprise, je comprends les réalités du monde professionnel de l'intérieur.",
         learnMore: "Lire la suite",
       },
       parenting: {
-        title: "Soutien à la parentalité : anxiété parentale, maternité, surcharge…",
+        title: "Soutien à la parentalité : anxiété parentale, maternité, surcharge mentale…",
         description:
-          "Anxiété périnatale, matrescence, surcharge et le poids invisible de la parentalité moderne. Certifiée en soutien parental et maman moi-même.",
+          "Anxiété périnatale, ambivalence de la maternité, charge mentale et poids invisible de la parentalité moderne. Certifiée en accompagnement à la parentalité et mère moi-même, je propose un espace de soutien sans jugement.",
         learnMore: "Lire la suite",
       },
     },
@@ -225,51 +225,51 @@ const fr: Dictionary = {
       {
         question: "Comment se déroulent les séances en ligne ?",
         answer:
-          "Les séances durent de 45 à 60 minutes et se tiennent en visioconférence sécurisée. Il vous suffit d'un endroit calme et privé et d'une connexion internet stable. La thérapie en ligne offre de la flexibilité et vous permet d'accéder à un soutien où que vous soyez dans le monde. Nous nous retrouvons généralement chaque semaine ou toutes les deux semaines selon vos besoins et votre disponibilité.",
+          "Les séances durent entre 45 et 60 minutes et se déroulent en visioconférence sécurisée. Vous avez simplement besoin d'un endroit calme et privé ainsi que d'une connexion internet stable. La thérapie en ligne offre plus de flexibilité et permet d'accéder à un accompagnement où que vous soyez dans le monde. Nous nous retrouvons généralement chaque semaine ou toutes les deux semaines, selon vos besoins et votre rythme.",
       },
       {
-        question: "Combien de temps dure une thérapie ?",
+        question: "Combien de temps dure un accompagnement ?",
         answer:
-          "Cela dépend de vos besoins et de vos objectifs. Certaines personnes viennent pour quelques séances afin de travailler sur un sujet précis, tandis que d'autres choisissent un accompagnement à plus long terme. Nous faisons régulièrement le point ensemble sur votre progression.",
+          "Cela dépend de vos besoins et de vos objectifs. Certaines personnes viennent pour quelques séances afin de travailler sur une difficulté précise, tandis que d'autres choisissent un accompagnement plus approfondi sur une plus longue durée. Nous faisons régulièrement le point ensemble sur votre évolution et vos besoins.",
       },
       {
         question: "Où êtes-vous basée et quels fuseaux horaires couvrez-vous ?",
         answer:
-          "Je suis basée en France et je travaille de façon flexible sur les fuseaux européens et les horaires américains qui se chevauchent. Nous trouverons un créneau adapté à votre emploi du temps. Je me spécialise dans l'accompagnement des expatriés et des professionnels internationaux à partir de mon expérience personnelle. Vivre à l'étranger peut amener des défis particuliers — isolement, bouleversements identitaires, pression de « faire que ça marche » — et la thérapie peut vous aider à les traverser plus sereinement.",
+          "Je suis basée en France et je propose des horaires adaptés aux fuseaux européens ainsi qu'aux horaires américains qui se chevauchent. Ayant moi-même vécu à l'étranger, je me spécialise dans l'accompagnement des expatriés et des professionnels internationaux. L'expatriation peut faire émerger des défis spécifiques : isolement, questionnements identitaires, pression de « réussir son expatriation » ou difficulté à trouver sa place. La thérapie peut vous aider à traverser ces expériences avec plus de soutien et de clarté.",
       },
       {
-        question: "Combien coûte une séance ?",
-        answer: `Une séance individuelle coûte ${FEES.singleSession}€. Je propose également des forfaits pour alléger la dimension financière de la thérapie. [FR — Sarah to validate]`,
+        question: "Quels sont vos tarifs ?",
+        answer: `Une séance individuelle coûte ${FEES.singleSession}€. Je propose également des forfaits afin de rendre l'accompagnement plus accessible financièrement :`,
         answerBullets: [
-          `4 séances à ${FEES.package4}€`,
-          `8 séances à ${FEES.package8}€`,
+          `4 séances : ${FEES.package4}€`,
+          `8 séances : ${FEES.package8}€`,
         ],
       },
       {
         question: "La thérapie en ligne est-elle plus abordable ?",
         answer:
-          "Je propose une tarification transparente, souvent plus accessible que la thérapie privée dans des pays comme le Royaume-Uni, la Suisse ou Dubaï. Cela vous permet d'accéder à un accompagnement régulier sans longues listes d'attente ni coûts élevés. Je propose également des forfaits conçus pour alléger l'aspect financier de la thérapie, afin que le coût soit moins un frein.",
+          "Je propose une tarification transparente et accessible, souvent plus avantageuse que la thérapie privée dans des pays comme le Royaume-Uni, la Suisse ou Dubaï. La thérapie en ligne permet de bénéficier d'un accompagnement régulier et flexible, sans les contraintes de déplacement ni les longues listes d'attente. Des forfaits sont également proposés afin de rendre le suivi thérapeutique plus accessible dans la durée.",
       },
       {
         question: "Quels types de difficultés accompagnez-vous ?",
-        answer: "J'accompagne principalement des personnes qui vivent : [FR — Sarah to validate]",
+        answer: "J'accompagne principalement des personnes confrontées à :",
         answerBullets: [
-          "Anxiété et ruminations",
-          "Stress et burnout",
-          "Pression professionnelle",
-          "Transitions de vie (expatriation, changement de carrière, parentalité)",
-          "Surcharge émotionnelle et difficulté à décrocher",
+          "l'anxiété",
+          "le stress et le burn-out",
+          "la pression professionnelle",
+          "les transitions de vie (expatriation, changement de carrière, parentalité, etc.)",
+          "la surcharge émotionnelle et la difficulté à déconnecter",
         ],
       },
       {
-        question: "Comment savoir si c'est fait pour moi ?",
+        question: "Comment savoir si la thérapie est faite pour moi ?",
         answer:
-          "Si vous vous sentez submergé·e, anxieux·se, ou bloqué·e dans des schémas qui ne bougent pas, la thérapie peut vous aider. Vous n'avez pas besoin d'être en crise — beaucoup de personnes viennent simplement parce qu'elles veulent se sentir mieux et retrouver de la clarté. Ce qui compte, c'est de vous sentir à l'aise avec votre thérapeute. L'appel découverte est l'occasion pour vous de poser vos questions, de me dire brièvement ce que vous traversez, et de sentir si travailler ensemble vous convient. Aucune pression, aucun engagement.",
+          "Vous n'avez pas besoin d'être en crise pour commencer une thérapie. Si vous vous sentez submergé·e, anxieux·se, épuisé·e ou bloqué·e dans certains schémas, la thérapie peut vous aider à retrouver plus de compréhension, de clarté et d'équilibre. Beaucoup de personnes commencent simplement parce qu'elles veulent se sentir mieux dans leur quotidien. L'essentiel est de vous sentir à l'aise avec votre thérapeute. L'appel découverte est justement un espace pour poser vos questions, partager brièvement ce que vous traversez et voir si travailler ensemble vous convient — sans pression ni engagement.",
       },
       {
         question: "Comment commencer ?",
         answer:
-          "Vous pouvez réserver un appel découverte pour explorer ensemble ce que vous traversez, ce que vous cherchez, et la façon dont nous pourrions travailler ensemble. C'est aussi l'occasion de voir si vous vous sentez à l'aise avec moi. [FR — Sarah to validate]",
+          "Vous pouvez réserver un appel découverte gratuit de 15 minutes pour échanger sur ce que vous traversez, ce que vous recherchez et la manière dont nous pourrions travailler ensemble. C'est également l'occasion de voir si vous vous sentez à l'aise avec moi.",
       },
     ],
   },
@@ -277,23 +277,22 @@ const fr: Dictionary = {
   blog: {
     pageTitle: "Blog",
     pageSubtitle:
-      "Réflexions pratiques sur la vie d'expatrié, le stress professionnel, le burn-out et le poids émotionnel de la parentalité.",
+      "Réflexions et ressources pratiques autour de l'expatriation, du stress professionnel, du burn-out et de la charge émotionnelle de la parentalité.",
     sections: {
       expats: {
         heading: "Pour les expatriés et les nomades",
         intro:
-          "Vivre à l'étranger est riche et complexe. Ces articles explorent l'anxiété, les bouleversements identitaires et les pressions invisibles de l'expatriation — et ce qui aide vraiment.",
+          "Vivre à l'étranger est une expérience à la fois enrichissante et complexe. Ces articles explorent l'anxiété, les questionnements identitaires, l'isolement et les pressions invisibles liées à l'expatriation — ainsi que les ressources qui peuvent réellement aider.",
       },
       professionals: {
-        heading: "Pour les professionnels et le burn-out",
+        heading: "Pour les professionnels confrontés au stress et au burn-out",
         intro:
-          "La haute performance a un coût. Ces articles abordent le burn-out, le perfectionnisme, l'anxiété au travail et les outils TCC pour retrouver son équilibre.",
+          "La recherche de performance a un coût. Ces articles abordent le burn-out, le perfectionnisme, l'anxiété professionnelle et les outils issus de la TCC pour retrouver plus d'équilibre et prévenir l'épuisement.",
       },
       parents: {
-        heading: "Pour les parents et les nouvelles mères",
-        // FR — Sarah to validate
+        heading: "Pour les parents et les jeunes mères",
         intro:
-          "La parentalité change tout. Ces articles abordent l'anxiété périnatale, l'ambivalence de la maternité et le poids émotionnel d'élever des enfants — avec honnêteté et sans jugement.",
+          "La parentalité transforme profondément l'équilibre émotionnel. Ces articles parlent d'anxiété périnatale, d'ambivalence maternelle et de la charge mentale liée au fait d'élever des enfants — avec honnêteté, nuance et sans jugement.",
       },
     },
     readMore: "Lire l'article",
@@ -333,9 +332,9 @@ const fr: Dictionary = {
   },
 
   cta: {
-    bookCall: "Quand vous êtes prêt·e",
+    bookCall: "Quand vous serez prêt·e",
     bookCallBody:
-      "Un appel découverte gratuit de 15 minutes est la façon la plus simple de commencer. Sans engagement — juste une conversation.",
+      "Un appel découverte gratuit de 15 minutes est la manière la plus simple de commencer. Sans engagement — simplement une première conversation.",
     bookCallButton: "Réserver votre appel découverte gratuit",
   },
 
