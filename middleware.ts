@@ -1,8 +1,11 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
-import { LOCALES, DEFAULT_LOCALE, FR_PUBLIC_SLUGS, getInternalSegment, type Locale } from './lib/routes'
+import { LOCALES, DEFAULT_LOCALE, FR_PUBLIC_SLUGS, LOCALE_COOKIE_NAME, getInternalSegment, type Locale } from './lib/routes'
 
 function detectLocale(request: NextRequest): Locale {
+  const cookieLocale = request.cookies.get(LOCALE_COOKIE_NAME)?.value
+  if (cookieLocale === 'en' || cookieLocale === 'fr') return cookieLocale
+
   const acceptLanguage = request.headers.get('accept-language') ?? ''
   const preferred = acceptLanguage.split(',')[0]?.trim().toLowerCase() ?? ''
   if (preferred.startsWith('fr')) return 'fr'

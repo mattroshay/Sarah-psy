@@ -1,7 +1,7 @@
 'use client'
 
 import { usePathname, useRouter } from 'next/navigation'
-import { getAlternatePath, type Locale } from '@/lib/routes'
+import { getAlternatePath, LOCALE_COOKIE_NAME, type Locale } from '@/lib/routes'
 import { cn } from '@/lib/cn'
 
 interface LanguageToggleProps {
@@ -24,6 +24,8 @@ export function LanguageToggle({ currentLocale, label, className }: LanguageTogg
     } catch {
       // localStorage may be unavailable in some contexts
     }
+    const secure = location.protocol === 'https:' ? '; Secure' : ''
+    document.cookie = `${LOCALE_COOKIE_NAME}=${targetLocale}; Path=/; Max-Age=31536000; SameSite=Lax${secure}`
     router.push(alternatePath)
   }
 

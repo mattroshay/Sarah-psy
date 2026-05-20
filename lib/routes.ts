@@ -3,6 +3,10 @@ export type Locale = 'en' | 'fr'
 export const LOCALES: Locale[] = ['en', 'fr']
 export const DEFAULT_LOCALE: Locale = 'en'
 
+/** Cookie name for the user's manually-selected locale. Read by middleware,
+ * written by LanguageToggle. Follows the Next.js / next-intl convention. */
+export const LOCALE_COOKIE_NAME = 'NEXT_LOCALE'
+
 /**
  * Maps the internal route segment (used in the file system) to its public-facing
  * slug per locale. Keys are the EN segment names; values are the FR public slugs.
