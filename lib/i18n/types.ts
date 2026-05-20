@@ -119,7 +119,10 @@ export interface ContactDict {
   pageTitle: string
   pageSubtitle: string
   formHeading: string
-  calendlyHeading: string
+  calendlyDiscoveryHeading: string
+  calendlyDiscoveryDescription?: string
+  calendlySessionHeading: string
+  calendlySessionDescription?: string
   calendlyFallback: string
   fields: {
     name: string
