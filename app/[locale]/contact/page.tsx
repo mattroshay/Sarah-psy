@@ -41,8 +41,8 @@ export default async function ContactPageRoute({ params }: Props) {
         contact={contact}
         forms={forms}
         formspreeEndpoint={process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT}
-        discoveryCalendlyUrl={process.env.NEXT_PUBLIC_CALENDLY_DISCOVERY_URL}
-        sessionCalendlyUrl={process.env.NEXT_PUBLIC_CALENDLY_SESSION_URL}
+        discoveryCalendlyUrl={process.env.NEXT_PUBLIC_CALENDLY_DISCOVERY_URL || process.env.NEXT_PUBLIC_CALENDLY_URL}
+        sessionCalendlyUrl={process.env.NEXT_PUBLIC_CALENDLY_SESSION_URL || process.env.NEXT_PUBLIC_CALENDLY_URL}
       />
     </>
   )
