@@ -37,7 +37,7 @@ export default async function AboutPage({ params }: Props) {
 
   const dict = await getDictionary(locale as Locale)
   const { about, cta } = dict
-  const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_URL || `/${locale}/contact`
+  const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_DISCOVERY_URL || `/${locale}/contact`
 
   return (
     <>

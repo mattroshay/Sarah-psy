@@ -36,7 +36,7 @@ export default async function HomePage({ params }: Props) {
   if (!LOCALES.includes(locale as Locale)) notFound()
 
   const dict = await getDictionary(locale as Locale)
-  const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_URL || `/${locale}/contact`
+  const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_DISCOVERY_URL || `/${locale}/contact`
   const { home } = dict
 
   const audienceLinks: Record<string, string> = {

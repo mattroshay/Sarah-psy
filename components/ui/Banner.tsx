@@ -1,5 +1,5 @@
 import { cn } from '@/lib/cn'
-import { Button } from './Button'
+import { CalendlyButton } from './CalendlyButton'
 
 interface BannerProps {
   heading: string
@@ -40,13 +40,13 @@ export function Banner({
           {body}
         </p>
       )}
-      <Button
+      <CalendlyButton
         href={buttonHref}
         variant={variant === 'warm' ? 'primary' : 'white'}
         size="lg"
       >
         {buttonLabel}
-      </Button>
+      </CalendlyButton>
     </section>
   )
 }

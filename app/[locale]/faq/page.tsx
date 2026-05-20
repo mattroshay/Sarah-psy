@@ -33,7 +33,7 @@ export default async function FaqPage({ params }: Props) {
 
   const dict = await getDictionary(locale as Locale)
   const { faq, cta } = dict
-  const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_URL || `/${locale}/contact`
+  const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_DISCOVERY_URL || `/${locale}/contact`
 
   return (
     <>

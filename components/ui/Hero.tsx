@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { Button } from './Button'
+import { CalendlyButton } from './CalendlyButton'
 import { cn } from '@/lib/cn'
 
 interface HeroProps {
@@ -38,9 +39,9 @@ export function Hero({
         </h1>
         <p className="text-lg text-muted leading-relaxed max-w-lg">{subhead}</p>
         <div className="flex flex-wrap gap-4">
-          <Button href={primaryHref} variant="primary" size="lg">
+          <CalendlyButton href={primaryHref} variant="primary" size="lg">
             {primaryLabel}
-          </Button>
+          </CalendlyButton>
           <Button href={secondaryHref} variant="outline" size="lg">
             {secondaryLabel}
           </Button>
