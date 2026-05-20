@@ -20,13 +20,22 @@ interface CalendlyButtonProps {
   onClick?: (e: MouseEvent<HTMLAnchorElement>) => void
 }
 
+function isCalendlyUrl(href: string): boolean {
+  try {
+    const { hostname } = new URL(href)
+    return hostname === 'calendly.com' || hostname.endsWith('.calendly.com')
+  } catch {
+    return false
+  }
+}
+
 export function CalendlyButton({
   href,
   children,
   onClick,
   ...rest
 }: CalendlyButtonProps) {
-  const isCalendly = href.includes('calendly.com')
+  const isCalendly = isCalendlyUrl(href)
 
   if (!isCalendly) {
     return (
