@@ -24,6 +24,8 @@ export function LanguageToggle({ currentLocale, label, className }: LanguageTogg
     } catch {
       // localStorage may be unavailable in some contexts
     }
+    const secure = location.protocol === 'https:' ? '; secure' : ''
+    document.cookie = `NEXT_LOCALE=${targetLocale}; path=/; max-age=31536000; samesite=lax${secure}`
     router.push(alternatePath)
   }
 

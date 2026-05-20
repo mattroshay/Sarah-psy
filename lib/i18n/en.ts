@@ -211,7 +211,7 @@ const en: Dictionary = {
       parenting: {
         title: "Parenting support: parental anxiety, maternity, overwhelm…",
         description:
-          "Perinatal anxiety, matrescence, overwhelm, and the invisible weight of modern parenthood. Certified in parenting support and a parent myself.",
+          "Perinatal anxiety, ambivalence of motherhood, overwhelm, and the invisible weight of modern parenthood. Certified in parenting support and a parent myself.",
         learnMore: "Read more",
       },
     },
