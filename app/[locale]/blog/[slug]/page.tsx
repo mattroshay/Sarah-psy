@@ -50,7 +50,7 @@ export default async function BlogPostPage({ params }: Props) {
 
   const dict = await getDictionary(locale as Locale)
   const { cta, blog } = dict
-  const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_URL || `/${locale}/contact`
+  const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_DISCOVERY_URL || `/${locale}/contact`
 
   // Related posts (same topic, same locale, excluding current)
   const allPosts = await getAllPosts(locale as Locale)

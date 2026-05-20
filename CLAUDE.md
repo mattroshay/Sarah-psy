@@ -440,7 +440,8 @@ Provide `.env.local.example` checked into git:
 
 ```
 NEXT_PUBLIC_SITE_URL=https://sarah-psy.com
-NEXT_PUBLIC_CALENDLY_URL=                # Sarah-provided
+NEXT_PUBLIC_CALENDLY_DISCOVERY_URL=      # Sarah-provided — site-wide CTAs (popup widget) + Contact discovery embed
+NEXT_PUBLIC_CALENDLY_SESSION_URL=        # Sarah-provided — Contact session embed only
 NEXT_PUBLIC_FORMSPREE_ENDPOINT=          # Sarah-provided
 NEXT_PUBLIC_GA4_ID=                      # Sarah-provided
 NEXT_PUBLIC_CONTACT_EMAIL=               # Sarah-provided

@@ -34,7 +34,7 @@ export default async function MySpecialtiesPage({ params }: Props) {
 
   const dict = await getDictionary(locale as Locale)
   const { mySpecialties, cta } = dict
-  const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_URL || `/${locale}/contact`
+  const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_DISCOVERY_URL || `/${locale}/contact`
 
   const services = [
     {

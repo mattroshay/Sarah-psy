@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+import Script from 'next/script'
 import { LOCALES, type Locale, getAlternatePath } from '@/lib/routes'
 import { getDictionary } from '@/lib/i18n'
 import { Navigation } from '@/components/ui/Navigation'
@@ -56,13 +57,22 @@ export default async function LocaleLayout({ children, params }: Props) {
   }
 
   const dict = await getDictionary(locale as Locale)
-  const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_URL || `/${locale}/contact`
+  const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_DISCOVERY_URL || `/${locale}/contact`
 
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <link
+        rel="stylesheet"
+        href="https://assets.calendly.com/assets/external/widget.css"
+        precedence="default"
+      />
+      <Script
+        src="https://assets.calendly.com/assets/external/widget.js"
+        strategy="lazyOnload"
       />
       <Navigation
         locale={locale as Locale}
