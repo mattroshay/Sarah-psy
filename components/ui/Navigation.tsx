@@ -7,16 +7,15 @@ import type { NavDict } from '@/lib/i18n/types'
 import type { Locale } from '@/lib/routes'
 import { getPublicSlug } from '@/lib/routes'
 import { LanguageToggle } from './LanguageToggle'
-import { CalendlyButton } from './CalendlyButton'
+import { Button } from './Button'
 import { cn } from '@/lib/cn'
 
 interface NavigationProps {
   locale: Locale
   nav: NavDict
-  calendlyUrl?: string
 }
 
-export function Navigation({ locale, nav, calendlyUrl }: NavigationProps) {
+export function Navigation({ locale, nav }: NavigationProps) {
   const [menuOpen, setMenuOpen] = useState(false)
   const pathname = usePathname()
 
@@ -77,13 +76,13 @@ export function Navigation({ locale, nav, calendlyUrl }: NavigationProps) {
             currentLocale={locale}
             label={{ en: 'English', fr: 'Français' }}
           />
-          <CalendlyButton
-            href={calendlyUrl ?? '#contact'}
+          <Button
+            href={`/${locale}/contact`}
             variant="primary"
             size="sm"
           >
             {nav.bookCall}
-          </CalendlyButton>
+          </Button>
         </div>
 
         {/* Mobile: language toggle + hamburger */}
@@ -134,14 +133,14 @@ export function Navigation({ locale, nav, calendlyUrl }: NavigationProps) {
             ))}
           </ul>
           <div className="pt-4 border-t border-border mt-3">
-            <CalendlyButton
-              href={calendlyUrl ?? '#contact'}
+            <Button
+              href={`/${locale}/contact`}
               variant="primary"
               size="sm"
               onClick={() => setMenuOpen(false)}
             >
               {nav.bookCall}
-            </CalendlyButton>
+            </Button>
           </div>
         </div>
       )}

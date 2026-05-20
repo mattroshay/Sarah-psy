@@ -57,7 +57,6 @@ export default async function LocaleLayout({ children, params }: Props) {
   }
 
   const dict = await getDictionary(locale as Locale)
-  const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_DISCOVERY_URL || `/${locale}/contact`
 
   return (
     <>
@@ -77,7 +76,6 @@ export default async function LocaleLayout({ children, params }: Props) {
       <Navigation
         locale={locale as Locale}
         nav={dict.nav}
-        calendlyUrl={calendlyUrl}
       />
       <main className="flex-1">{children}</main>
       <Footer
