@@ -158,7 +158,7 @@ const fr: Dictionary = {
       lead: "La thérapie est un processus collaboratif.",
       firstSession: {
         heading: "Première séance",
-        lead: "La première séance est l'occasion de :",
+        lead: "La première séance permet de :",
         items: [
           "explorer ce que vous vivez actuellement",
           "comprendre vos besoins et vos objectifs",
@@ -168,10 +168,10 @@ const fr: Dictionary = {
       },
       ongoing: {
         heading: "Séances suivantes",
-        lead: "Au cours des séances suivantes, nous travaillerons ensemble pour :",
+        lead: "Lors des séances suivantes, nous travaillerons ensemble pour :",
         items: [
           "identifier les schémas de pensée ou de comportement qui entretiennent les difficultés",
-          "comprendre vos réponses émotionnelles",
+          "mieux comprendre vos réactions émotionnelles",
           "développer des stratégies d'adaptation concrètes",
         ],
         closing:
@@ -304,15 +304,15 @@ const fr: Dictionary = {
   contact: {
     pageTitle: "Me contacter",
     pageSubtitle:
-      "Envoyez-moi un message, réservez un appel découverte gratuit de 15 minutes ou réservez une séance — selon ce qui vous convient le mieux.",
+      "Envoyez-moi un message, réservez un appel découverte gratuit de 15 minutes, ou réservez directement une séance — à vous de choisir ce qui vous convient.",
     formHeading: "Envoyer un message",
     calendlyDiscoveryHeading: "Réserver un appel découverte",
-    calendlyDiscoveryDescription: "[FR — Sarah to validate] Appel découverte gratuit de 15 minutes pour explorer comment nous pouvons travailler ensemble.",
+    calendlyDiscoveryDescription: "Appel découverte gratuit de 15 minutes — sans engagement.",
     calendlySessionHeading: "Réserver une séance",
-    calendlySessionDescription: "[FR — Sarah to validate] Planifier une séance de thérapie d'une heure.",
+    calendlySessionDescription: "Séance de thérapie individuelle, 1 heure.",
     calendlyFallback: "Lien de réservation non configuré.",
     fields: {
-      name: "Votre nom",
+      name: "Votre prénom et nom",
       email: "Votre e-mail",
       message: "Votre message",
       preferredLanguage: "Langue préférée pour les séances",
