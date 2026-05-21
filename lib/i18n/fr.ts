@@ -321,7 +321,7 @@ const fr: Dictionary = {
       submit: "Envoyer le message",
     },
     validation: {
-      nameRequired: "Veuillez entrer votre nom.",
+      nameRequired: "Veuillez entrer votre prénom et nom.",
       emailRequired: "Veuillez entrer votre adresse e-mail.",
       emailInvalid: "Veuillez entrer une adresse e-mail valide.",
       messageRequired: "Veuillez entrer un message.",
