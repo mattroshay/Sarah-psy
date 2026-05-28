@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { headers } from 'next/headers'
 import { Jost } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
 const jost = Jost({
@@ -24,7 +25,10 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} className={jost.variable}>
-      <body className="flex flex-col min-h-screen">{children}</body>
+      <body className="flex flex-col min-h-screen">
+        {children}
+        <Analytics />
+      </body>
     </html>
   )
 }
