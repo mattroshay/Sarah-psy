@@ -33,6 +33,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: post.meta.title,
     description: post.meta.excerpt,
+    alternates: {
+      canonical: `${siteUrl}/${locale}/blog/${slug}`,
+    },
     openGraph: {
       title: post.meta.title,
       description: post.meta.excerpt,
@@ -49,7 +52,7 @@ export default async function BlogPostPage({ params }: Props) {
   if (!post) notFound()
 
   const dict = await getDictionary(locale as Locale)
-  const { cta, blog } = dict
+  const { cta, blog, nav } = dict
   const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_DISCOVERY_URL || `/${locale}/contact`
 
   // Related posts (same topic, same locale, excluding current)
@@ -58,8 +61,23 @@ export default async function BlogPostPage({ params }: Props) {
     .filter(p => p.slug !== slug && p.topic === post.meta.topic)
     .slice(0, 3)
 
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://sarah-psy.com'
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: nav.home, item: `${siteUrl}/${locale}` },
+      { '@type': 'ListItem', position: 2, name: nav.blog, item: `${siteUrl}/${locale}/blog` },
+      { '@type': 'ListItem', position: 3, name: post.meta.title, item: `${siteUrl}/${locale}/blog/${slug}` },
+    ],
+  }
+
   return (
     <article className="max-w-3xl mx-auto px-4 sm:px-6 py-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       {/* Hero image */}
       <div className="relative h-72 rounded-2xl overflow-hidden mb-10">
         <Image

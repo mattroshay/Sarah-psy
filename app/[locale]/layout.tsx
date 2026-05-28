@@ -36,17 +36,38 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://sarah-psy.com'
+const headshotUrl = `${siteUrl}/images/sarah-headshot.jpg`
+
 const jsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'ProfessionalService',
-  name: 'Sarah Cousin Roshay',
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://sarah-psy.com',
-  image: `${process.env.NEXT_PUBLIC_SITE_URL ?? 'https://sarah-psy.com'}/images/sarah-headshot.jpg`,
-  telephone: process.env.NEXT_PUBLIC_CONTACT_PHONE ?? '',
-  email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? '',
-  areaServed: ['FR', 'GB', 'US', 'BE', 'CH'],
-  knowsLanguage: ['en', 'fr'],
-  serviceType: 'Cognitive Behavioral Therapy',
+  '@graph': [
+    {
+      '@type': 'ProfessionalService',
+      name: 'Sarah Cousin Roshay',
+      url: siteUrl,
+      image: headshotUrl,
+      telephone: process.env.NEXT_PUBLIC_CONTACT_PHONE ?? '',
+      email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? '',
+      areaServed: ['FR', 'GB', 'US', 'BE', 'CH'],
+      knowsLanguage: ['en', 'fr'],
+      serviceType: 'Cognitive Behavioral Therapy',
+    },
+    {
+      '@type': 'WebSite',
+      name: 'Sarah Cousin Roshay',
+      url: siteUrl,
+    },
+    {
+      '@type': 'Person',
+      name: 'Sarah Cousin Roshay',
+      jobTitle: 'CBT Therapist',
+      url: siteUrl,
+      image: headshotUrl,
+      knowsLanguage: ['en', 'fr'],
+      sameAs: [],
+    },
+  ],
 }
 
 export default async function LocaleLayout({ children, params }: Props) {
