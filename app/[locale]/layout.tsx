@@ -3,8 +3,12 @@ import { notFound } from 'next/navigation'
 import Script from 'next/script'
 import { LOCALES, type Locale, getAlternatePath } from '@/lib/routes'
 import { getDictionary } from '@/lib/i18n'
+import { jsonLdString } from '@/lib/jsonLd'
 import { Navigation } from '@/components/ui/Navigation'
 import { Footer } from '@/components/ui/Footer'
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://sarah-psy.com'
+const HEADSHOT_URL = `${SITE_URL}/images/sarah-headshot.jpg`
 
 export async function generateStaticParams() {
   return LOCALES.map((locale) => ({ locale }))
@@ -20,17 +24,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   if (!LOCALES.includes(locale as Locale)) return {}
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://sarah-psy.com'
   const currentPath = `/${locale}`
   const alternatePath = getAlternatePath(locale as Locale, currentPath)
 
   return {
     alternates: {
-      canonical: `${siteUrl}${currentPath}`,
+      canonical: `${SITE_URL}${currentPath}`,
       languages: {
-        en: `${siteUrl}${locale === 'en' ? currentPath : alternatePath}`,
-        fr: `${siteUrl}${locale === 'fr' ? currentPath : alternatePath}`,
-        'x-default': `${siteUrl}/en`,
+        en: `${SITE_URL}${locale === 'en' ? currentPath : alternatePath}`,
+        fr: `${SITE_URL}${locale === 'fr' ? currentPath : alternatePath}`,
+        'x-default': `${SITE_URL}/en`,
       },
     },
   }
@@ -38,15 +41,32 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 const jsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'ProfessionalService',
-  name: 'Sarah Cousin Roshay',
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://sarah-psy.com',
-  image: `${process.env.NEXT_PUBLIC_SITE_URL ?? 'https://sarah-psy.com'}/images/sarah-headshot.jpg`,
-  telephone: process.env.NEXT_PUBLIC_CONTACT_PHONE ?? '',
-  email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? '',
-  areaServed: ['FR', 'GB', 'US', 'BE', 'CH'],
-  knowsLanguage: ['en', 'fr'],
-  serviceType: 'Cognitive Behavioral Therapy',
+  '@graph': [
+    {
+      '@type': 'ProfessionalService',
+      name: 'Sarah Cousin Roshay',
+      url: SITE_URL,
+      image: HEADSHOT_URL,
+      telephone: process.env.NEXT_PUBLIC_CONTACT_PHONE ?? '',
+      email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? '',
+      areaServed: ['FR', 'GB', 'US', 'BE', 'CH'],
+      knowsLanguage: ['en', 'fr'],
+      serviceType: 'Cognitive Behavioral Therapy',
+    },
+    {
+      '@type': 'WebSite',
+      name: 'Sarah Cousin Roshay',
+      url: SITE_URL,
+    },
+    {
+      '@type': 'Person',
+      name: 'Sarah Cousin Roshay',
+      jobTitle: 'CBT Therapist',
+      url: SITE_URL,
+      image: HEADSHOT_URL,
+      knowsLanguage: ['en', 'fr'],
+    },
+  ],
 }
 
 export default async function LocaleLayout({ children, params }: Props) {
@@ -62,7 +82,7 @@ export default async function LocaleLayout({ children, params }: Props) {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: jsonLdString(jsonLd) }}
       />
       <link
         rel="stylesheet"
