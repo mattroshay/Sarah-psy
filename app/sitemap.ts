@@ -15,11 +15,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const entries: MetadataRoute.Sitemap = []
   const lastModified = new Date()
 
-  // Static pages: one entry per locale, each cross-referencing every alternate.
+  // Static pages: one entry per locale, each cross-referencing every alternate
+  // (including x-default → EN, matching the per-page metadata in app/[locale]/layout.tsx).
   for (const page of STATIC_PAGES) {
-    const languages = Object.fromEntries(
+    const languages: Record<string, string> = Object.fromEntries(
       LOCALES.map((l) => [l, urlFor(l, page)]),
     )
+    languages['x-default'] = urlFor('en', page)
     for (const locale of LOCALES) {
       entries.push({
         url: urlFor(locale, page),
