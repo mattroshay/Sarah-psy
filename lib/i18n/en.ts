@@ -25,12 +25,12 @@ const en: Dictionary = {
       "You don't need to go through it by yourself. Therapy can help you better understand what you are going through and develop practical tools to regain balance and wellbeing.",
     aboutStripHeading: "A therapy that speaks to you",
     aboutStripBody:
-      "I'm a bilingual Cognitive Behavioural Therapy (CBT) therapist who has lived the expat life, navigated corporate pressure, and I am a mother. My approach is collaborative, practical, and solution-focused, providing a safe, supportive, and non-judgmental space where you can explore your challenges and move forward at your own pace. My diverse background, my corporate experience and my certifications in psychotherapy allow me to provide you a tailored approach according to your needs and objectives.",
+      "I'm a bilingual Cognitive Behavioural Therapy (CBT) therapist who has lived the expat life, navigated corporate pressure, and is a mother. My approach is collaborative, practical, and solution-focused, providing a safe, supportive, and non-judgmental space where you can explore your challenges and move forward at your own pace. My diverse background, my corporate experience and my certifications in psychotherapy allow me to provide you a tailored approach according to your needs and objectives.",
     credentialBadges: [
       "CBT Certified",
       "Lived Expat Experience",
       "15 Years Corporate",
-      "Parenting Certified",
+      "Parenthood Support Certification",
     ],
     audienceHeading: "Who I work with",
     audience: {
