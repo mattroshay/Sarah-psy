@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 import Script from 'next/script'
 import { LOCALES, type Locale, getAlternatePath } from '@/lib/routes'
 import { getDictionary } from '@/lib/i18n'
+import { jsonLdString } from '@/lib/jsonLd'
 import { Navigation } from '@/components/ui/Navigation'
 import { Footer } from '@/components/ui/Footer'
 
@@ -83,7 +84,7 @@ export default async function LocaleLayout({ children, params }: Props) {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: jsonLdString(jsonLd) }}
       />
       <link
         rel="stylesheet"

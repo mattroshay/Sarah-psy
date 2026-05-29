@@ -6,8 +6,11 @@ import { LOCALES, type Locale } from '@/lib/routes'
 import { getDictionary } from '@/lib/i18n'
 import { getAllPosts, getPost } from '@/lib/blog'
 import { formatPublishDate } from '@/lib/formatDate'
+import { jsonLdString } from '@/lib/jsonLd'
 import { BlogPostCard } from '@/components/ui/BlogPostCard'
 import { Banner } from '@/components/ui/Banner'
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://sarah-psy.com'
 
 type Props = { params: Promise<{ locale: string; slug: string }> }
 
@@ -28,18 +31,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = await getPost(locale as Locale, slug)
   if (!post) return {}
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://sarah-psy.com'
-
   return {
     title: post.meta.title,
     description: post.meta.excerpt,
     alternates: {
-      canonical: `${siteUrl}/${locale}/blog/${slug}`,
+      canonical: `${SITE_URL}/${locale}/blog/${slug}`,
     },
     openGraph: {
       title: post.meta.title,
       description: post.meta.excerpt,
-      images: [{ url: `${siteUrl}${post.meta.heroImage}` }],
+      images: [{ url: `${SITE_URL}${post.meta.heroImage}` }],
     },
   }
 }
@@ -61,14 +62,13 @@ export default async function BlogPostPage({ params }: Props) {
     .filter(p => p.slug !== slug && p.topic === post.meta.topic)
     .slice(0, 3)
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://sarah-psy.com'
   const breadcrumbJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: nav.home, item: `${siteUrl}/${locale}` },
-      { '@type': 'ListItem', position: 2, name: nav.blog, item: `${siteUrl}/${locale}/blog` },
-      { '@type': 'ListItem', position: 3, name: post.meta.title, item: `${siteUrl}/${locale}/blog/${slug}` },
+      { '@type': 'ListItem', position: 1, name: nav.home, item: `${SITE_URL}/${locale}` },
+      { '@type': 'ListItem', position: 2, name: nav.blog, item: `${SITE_URL}/${locale}/blog` },
+      { '@type': 'ListItem', position: 3, name: post.meta.title, item: `${SITE_URL}/${locale}/blog/${slug}` },
     ],
   }
 
@@ -76,7 +76,7 @@ export default async function BlogPostPage({ params }: Props) {
     <article className="max-w-3xl mx-auto px-4 sm:px-6 py-16">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: jsonLdString(breadcrumbJsonLd) }}
       />
       {/* Hero image */}
       <div className="relative h-72 rounded-2xl overflow-hidden mb-10">
