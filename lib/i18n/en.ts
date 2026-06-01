@@ -71,7 +71,7 @@ const en: Dictionary = {
     ],
     testimonialsReadMore: "Read full review",
     testimonialsDisclaimer:
-      "Testimonials originally written in English, translated into French for this website. Names are published with the individuals' consent or have been anonymised to protect their confidentiality preferences.",
+      "Testimonials originally written in English. Translations are provided for this website. Names are published with the individuals' consent or have been anonymised to protect their confidentiality preferences.",
     ctaBannerHeading: "Ready to take the first step?",
     ctaBannerBody:
       "A free 15-minute discovery call lets you ask questions and feel whether working together is the right fit — no pressure.",
