@@ -60,20 +60,19 @@ const fr: Dictionary = {
     testimonials: [
       {
         quote:
-          "Sarah comprenait l'expérience de l'expatriation d'une façon que je n'avais jamais trouvée chez un thérapeute auparavant. [PLACEHOLDER]",
-        attribution: "C., Expatriée à Paris",
+          "Sarah possède une remarquable capacité à allier compréhension en profondeur et stratégies pratiques, ce qui a eu un réel impact positif sur mon quotidien. J'ai véritablement le sentiment d'avoir acquis un nouveau regard sur moi-même et sur le monde qui m'entoure. Je la recommande vivement à toute personne à la recherche d'une thérapeute réfléchie, compétente et bienveillante.",
+        attribution: "Lucy",
+        readMoreUrl: "https://share.google/2FQMS2R2yzy6qvsug",
       },
       {
         quote:
-          "Après des mois d'épuisement, son approche m'a aidé à retrouver mes repères. Elle connaissait le monde de l'entreprise de l'intérieur. [PLACEHOLDER]",
-        attribution: "J., Professionnel·le",
-      },
-      {
-        quote:
-          "Nouvelle maman, je me sentais très seule jusqu'à ce que je trouve le soutien de Sarah. Elle a tenu un espace sans jugement pour tout ce que je ressentais. [PLACEHOLDER]",
-        attribution: "M., Parent",
+          "J'avais déjà essayé une thérapie avec plusieurs professionnels, mais je ne m'étais jamais vraiment sentie suffisamment à l'aise pour m'ouvrir pleinement en raison de différences de culture, de croyances et de valeurs personnelles. Sarah est différente. Le fait qu'elle soit bilingue et qu'elle comprenne profondément les perspectives arabes et occidentales lui permet de créer un espace sûr et équilibré où l'on se sent véritablement compris plutôt que jugé. Son approche est douce, perspicace et ouvre de nouvelles perspectives, en particulier pour les femmes qui portent souvent de lourdes charges émotionnelles tout en ayant le sentiment d'être incomprises ou jugées.",
+        attribution: "Patiente anonyme",
       },
     ],
+    testimonialsReadMore: "Lire l'avis complet",
+    testimonialsDisclaimer:
+      "Témoignages initialement rédigés en anglais puis traduits en français pour ce site. Les noms ont été publiés avec l'accord des personnes concernées ou anonymisés afin de préserver leur choix de confidentialité.",
     ctaBannerHeading: "Prêt·e à faire le premier pas ?",
     ctaBannerBody:
       "Un appel découverte gratuit de 15 minutes vous permet de poser vos questions et de voir si travailler ensemble vous convient — sans engagement.",

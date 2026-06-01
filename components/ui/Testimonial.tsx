@@ -3,10 +3,18 @@ import { cn } from '@/lib/cn'
 interface TestimonialProps {
   quote: string
   attribution: string
+  readMoreUrl?: string
+  readMoreLabel?: string
   className?: string
 }
 
-export function Testimonial({ quote, attribution, className }: TestimonialProps) {
+export function Testimonial({
+  quote,
+  attribution,
+  readMoreUrl,
+  readMoreLabel,
+  className,
+}: TestimonialProps) {
   return (
     <figure
       className={cn(
@@ -28,6 +36,17 @@ export function Testimonial({ quote, attribution, className }: TestimonialProps)
       <figcaption className="text-sm text-muted font-medium not-italic">
         {attribution}
       </figcaption>
+      {readMoreUrl && readMoreLabel && (
+        <a
+          href={readMoreUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`${readMoreLabel} — ${attribution}`}
+          className="text-xs font-medium text-sage hover:text-sage-dark underline underline-offset-2 self-start"
+        >
+          {readMoreLabel} →
+        </a>
+      )}
     </figure>
   )
 }

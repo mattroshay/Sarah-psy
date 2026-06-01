@@ -7,6 +7,7 @@ import { Hero } from '@/components/ui/Hero'
 import { Card } from '@/components/ui/Card'
 import { Banner } from '@/components/ui/Banner'
 import { TintedImage } from '@/components/ui/TintedImage'
+import { Testimonial } from '@/components/ui/Testimonial'
 
 type Props = { params: Promise<{ locale: string }> }
 
@@ -130,21 +131,28 @@ export default async function HomePage({ params }: Props) {
         </div>
       </section>
 
-      {/* Testimonials — hidden per Sarah's May 11 review; re-enable when she supplies real client reviews. When un-commenting, also restore: import { Testimonial } from '@/components/ui/Testimonial' */}
-      {/*
+      {/* Testimonials */}
       <section className="bg-warm py-16">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <h2 className="font-heading text-2xl md:text-3xl font-bold text-charcoal mb-8 text-center">
             {home.testimonialsHeading}
           </h2>
-          <div className="grid sm:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {home.testimonials.map((t) => (
-              <Testimonial key={t.attribution} quote={t.quote} attribution={t.attribution} />
+              <Testimonial
+                key={t.attribution}
+                quote={t.quote}
+                attribution={t.attribution}
+                readMoreUrl={t.readMoreUrl}
+                readMoreLabel={home.testimonialsReadMore}
+              />
             ))}
           </div>
+          <p className="text-xs text-muted leading-relaxed text-center mt-8 max-w-2xl mx-auto">
+            {home.testimonialsDisclaimer}
+          </p>
         </div>
       </section>
-      */}
 
       {/* CTA banner */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16">
