@@ -59,20 +59,19 @@ const en: Dictionary = {
     testimonials: [
       {
         quote:
-          "Sarah's understanding of the expat experience was invaluable. She knew things about my life I had never had to explain to a therapist before. [PLACEHOLDER]",
-        attribution: "C., Expat in Paris",
+          "Sarah has a remarkable ability to balance insight with actionable strategies, which has made a real difference to my day-to-day life. I genuinely feel that I have gained a new perspective on myself and the world around me. I would highly recommend her to anyone seeking a thoughtful, skilled, and compassionate therapist.",
+        attribution: "Lucy",
+        readMoreUrl: "https://share.google/2FQMS2R2yzy6qvsug",
       },
       {
         quote:
-          "After months of burnout, her approach helped me find my footing again. She understood the corporate world in a way that made all the difference. [PLACEHOLDER]",
-        attribution: "J., Professional",
-      },
-      {
-        quote:
-          "As a new parent I felt so alone until I found Sarah's support. She held space for everything I was feeling without judgement. [PLACEHOLDER]",
-        attribution: "M., Parent",
+          "I have tried therapy with a few professionals before, but I never truly felt comfortable enough to fully open up due to differences in cultural background, beliefs, and personal values. Sarah is different. Being bilingual and deeply understanding both Arab and Western perspectives allows her to create a safe and balanced space where you feel genuinely understood rather than judged. Her approach is gentle, insightful, and eye-opening, especially for women who often carry emotional burdens while feeling misunderstood or judged.",
+        attribution: "Anonymous patient",
       },
     ],
+    testimonialsReadMore: "Read full review",
+    testimonialsDisclaimer:
+      "Testimonials originally written in English. Translations are provided for this website. Names are published with the individuals' consent or have been anonymised to protect their confidentiality preferences.",
     ctaBannerHeading: "Ready to take the first step?",
     ctaBannerBody:
       "A free 15-minute discovery call lets you ask questions and feel whether working together is the right fit — no pressure.",
