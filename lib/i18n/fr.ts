@@ -70,7 +70,7 @@ const fr: Dictionary = {
         attribution: "Patiente anonyme",
       },
     ],
-    testimonialsReadMore: "Lire l'avis complet",
+    testimonialsReadMore: 'Lire l\'avis complet',
     testimonialsDisclaimer:
       "Témoignages initialement rédigés en anglais puis traduits en français pour ce site. Les noms ont été publiés avec l'accord des personnes concernées ou anonymisés afin de préserver leur choix de confidentialité.",
     ctaBannerHeading: "Prêt·e à faire le premier pas ?",
