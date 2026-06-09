@@ -1,18 +1,25 @@
 import { cn } from '@/lib/cn'
+import { TestimonialModal } from './TestimonialModal'
 
 interface TestimonialProps {
   quote: string
+  fullQuote: string
   attribution: string
-  readMoreUrl?: string
-  readMoreLabel?: string
+  readMoreLabel: string
+  closeLabel: string
+  googleUrl?: string
+  googleLabel?: string
   className?: string
 }
 
 export function Testimonial({
   quote,
+  fullQuote,
   attribution,
-  readMoreUrl,
   readMoreLabel,
+  closeLabel,
+  googleUrl,
+  googleLabel,
   className,
 }: TestimonialProps) {
   return (
@@ -36,17 +43,25 @@ export function Testimonial({
       <figcaption className="text-sm text-muted font-medium not-italic">
         {attribution}
       </figcaption>
-      {readMoreUrl && readMoreLabel && (
-        <a
-          href={readMoreUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={`${readMoreLabel} — ${attribution}`}
-          className="text-xs font-medium text-sage hover:text-sage-dark underline underline-offset-2 self-start"
-        >
-          {readMoreLabel} →
-        </a>
-      )}
+      <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+        <TestimonialModal
+          fullQuote={fullQuote}
+          attribution={attribution}
+          triggerLabel={readMoreLabel}
+          closeLabel={closeLabel}
+        />
+        {googleUrl && googleLabel && (
+          <a
+            href={googleUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`${googleLabel} — ${attribution}`}
+            className="text-xs font-medium text-muted hover:text-charcoal underline underline-offset-2"
+          >
+            {googleLabel} →
+          </a>
+        )}
+      </div>
     </figure>
   )
 }

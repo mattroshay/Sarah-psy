@@ -137,14 +137,17 @@ export default async function HomePage({ params }: Props) {
           <h2 className="font-heading text-2xl md:text-3xl font-bold text-charcoal mb-8 text-center">
             {home.testimonialsHeading}
           </h2>
-          <div className="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {home.testimonials.map((t) => (
               <Testimonial
                 key={t.attribution}
                 quote={t.quote}
+                fullQuote={t.fullQuote}
                 attribution={t.attribution}
-                readMoreUrl={t.readMoreUrl}
                 readMoreLabel={home.testimonialsReadMore}
+                closeLabel={home.testimonialsCloseLabel}
+                googleUrl={t.readMoreUrl}
+                googleLabel={home.testimonialsViewOnGoogle}
               />
             ))}
           </div>

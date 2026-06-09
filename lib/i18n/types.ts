@@ -27,8 +27,15 @@ export interface HomeDict {
     stuck: { label: string; description: string }
   }
   testimonialsHeading: string
-  testimonials: Array<{ quote: string; attribution: string; readMoreUrl?: string }>
+  testimonials: Array<{
+    quote: string
+    fullQuote: string
+    attribution: string
+    readMoreUrl?: string
+  }>
   testimonialsReadMore: string
+  testimonialsViewOnGoogle: string
+  testimonialsCloseLabel: string
   testimonialsDisclaimer: string
   ctaBannerHeading: string
   ctaBannerBody: string
