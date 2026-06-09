@@ -59,17 +59,30 @@ const en: Dictionary = {
     testimonials: [
       {
         quote:
-          "Sarah has a remarkable ability to balance insight with actionable strategies, which has made a real difference to my day-to-day life. I genuinely feel that I have gained a new perspective on myself and the world around me. I would highly recommend her to anyone seeking a thoughtful, skilled, and compassionate therapist.",
+          "I have worked with Sarah using both CBT and psychodynamic approaches, and the experience has been incredibly valuable. Sarah has a remarkable ability to balance insight with actionable strategies, which has made a real difference to my day-to-day life. I genuinely feel that I have gained a new perspective on myself and the world around me. I would highly recommend her to anyone seeking a thoughtful, skilled, and compassionate therapist.",
+        fullQuote:
+          "I have worked with Sarah using both CBT and psychodynamic approaches, and the experience has been incredibly valuable. Although all of our sessions have taken place via video call, I have still felt the same benefits and connection that I would expect from face-to-face therapy. Together, we have explored my anxiety, self-esteem, and confidence, helping me understand both the deeper roots of these challenges and practical ways to manage them in the present moment. Sarah has a remarkable ability to balance insight with actionable strategies, which has made a real difference to my day-to-day life. Sarah is an excellent listener — empathetic, supportive, and highly knowledgeable in her field. She is able to draw upon a wide range of psychological theories and frameworks, explaining them in a way that deepens understanding and helps make sense of personal experiences. Outside of sessions, Sarah is flexible, accommodating, and always willing to work together to find appointment times that suit us both. Since beginning therapy with Sarah, I have come a long way in my personal development. I genuinely feel that I have gained a new perspective on myself and the world around me. I would highly recommend her to anyone seeking a thoughtful, skilled, and compassionate therapist.",
         attribution: "Lucy",
         readMoreUrl: "https://share.google/2FQMS2R2yzy6qvsug",
       },
       {
         quote:
           "I have tried therapy with a few professionals before, but I never truly felt comfortable enough to fully open up due to differences in cultural background, beliefs, and personal values. Sarah is different. Being bilingual and deeply understanding both Arab and Western perspectives allows her to create a safe and balanced space where you feel genuinely understood rather than judged. Her approach is gentle, insightful, and eye-opening, especially for women who often carry emotional burdens while feeling misunderstood or judged.",
+        fullQuote:
+          "I have tried therapy with a few professionals before, but I never truly felt comfortable enough to fully open up due to differences in cultural background, beliefs, and personal values. Sarah is different. Being bilingual and deeply understanding both Arab and Western perspectives allows her to create a safe and balanced space where you feel genuinely understood rather than judged. She takes the time to understand who you are, where you come from, and what truly matters to you. Her approach is gentle, insightful, and eye-opening, especially for women who often carry emotional burdens while feeling misunderstood or judged. She helped me work through difficult personal and family-related challenges in a way that felt supportive and empowering. I truly appreciate her professionalism, kindness, and ability to make therapy feel approachable and comfortable. I would go back to her in a heartbeat, and I highly recommend her to anyone looking for a therapist who combines compassion, cultural awareness, and practical guidance.",
         attribution: "Anonymous patient",
+      },
+      {
+        quote:
+          "Sarah combines professional expertise and extensive experience with authentic compassion and emotional presence. She not only helps people navigate their challenges but also creates a space where they feel truly seen, heard, and understood. That is Sarah's most valuable gift — and one that remains genuinely irreplaceable.",
+        fullQuote:
+          "In today's world, knowledge is everywhere. Answers to almost any question can be found online, and even AI can provide guidance and information within seconds. Yet empathy, patience, heartfelt support, sincere encouragement, and the willingness to walk beside someone through their darkest moments while witnessing their growth — these are expressions of human kindness that no technology can truly replace. I feel incredibly fortunate to have experienced all of these qualities with Sarah. As AI becomes increasingly integrated into every aspect of our lives, both now and in the future, what we need is not merely answers to our questions. We need someone who genuinely understands us, who can deeply empathize with our experiences, and who can connect with us on a human level. Sarah combines professional expertise and extensive experience with authentic compassion and emotional presence. She not only helps people navigate their challenges but also creates a space where they feel truly seen, heard, and understood. That is Sarah's most valuable gift — and one that remains genuinely irreplaceable.",
+        attribution: "Ocindy",
       },
     ],
     testimonialsReadMore: "Read full review",
+    testimonialsViewOnGoogle: "View on Google",
+    testimonialsCloseLabel: "Close",
     testimonialsDisclaimer:
       "Testimonials originally written in English. Translations are provided for this website. Names are published with the individuals' consent or have been anonymised to protect their confidentiality preferences.",
     ctaBannerHeading: "Ready to take the first step?",
