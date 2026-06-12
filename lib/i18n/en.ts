@@ -78,6 +78,7 @@ const en: Dictionary = {
         fullQuote:
           "In today's world, knowledge is everywhere. Answers to almost any question can be found online, and even AI can provide guidance and information within seconds. Yet empathy, patience, heartfelt support, sincere encouragement, and the willingness to walk beside someone through their darkest moments while witnessing their growth — these are expressions of human kindness that no technology can truly replace. I feel incredibly fortunate to have experienced all of these qualities with Sarah. As AI becomes increasingly integrated into every aspect of our lives, both now and in the future, what we need is not merely answers to our questions. We need someone who genuinely understands us, who can deeply empathize with our experiences, and who can connect with us on a human level. Sarah combines professional expertise and extensive experience with authentic compassion and emotional presence. She not only helps people navigate their challenges but also creates a space where they feel truly seen, heard, and understood. That is Sarah's most valuable gift — and one that remains genuinely irreplaceable.",
         attribution: "Ocindy",
+        readMoreUrl: "https://share.google/fjZeXblM74ygGscs5",
       },
     ],
     testimonialsReadMore: "Read full review",
