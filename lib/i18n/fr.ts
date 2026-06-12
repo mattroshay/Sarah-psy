@@ -79,6 +79,7 @@ const fr: Dictionary = {
         fullQuote:
           "Dans le monde d'aujourd'hui, le savoir est partout. On peut trouver en ligne des réponses à presque toutes les questions, et même l'intelligence artificielle est capable de fournir informations et conseils en quelques secondes. Mais l'empathie, la patience, le soutien sincère, les encouragements authentiques et la capacité d'accompagner quelqu'un dans ses moments les plus difficiles tout en étant témoin de son évolution sont des qualités profondément humaines qu'aucune technologie ne peut véritablement remplacer. J'ai eu la chance de retrouver toutes ces qualités auprès de Sarah. À mesure que l'intelligence artificielle prend une place croissante dans nos vies, ce dont nous avons besoin n'est pas seulement de réponses à nos questions. Nous avons besoin d'une personne capable de nous comprendre réellement, d'éprouver une véritable empathie pour ce que nous vivons et d'établir une connexion humaine authentique. Sarah allie une solide expertise professionnelle et une grande expérience à une compassion sincère et une présence profondément humaine. Elle aide non seulement ses patients à surmonter leurs difficultés, mais crée également un espace dans lequel ils se sentent véritablement écoutés, compris et accueillis. C'est sans doute son plus grand talent, et une qualité précieuse qui demeure irremplaçable.",
         attribution: "Ocindy",
+        readMoreUrl: "https://share.google/fjZeXblM74ygGscs5",
       },
     ],
     testimonialsReadMore: 'Lire l\'avis complet',
