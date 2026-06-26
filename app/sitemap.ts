@@ -22,10 +22,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       LOCALES.map((l) => [l, urlFor(l, page)]),
     )
     languages['x-default'] = urlFor('en', page)
+    // Home page ranks highest; the other top-level pages share a lower tier.
+    const priority = page === '' ? 1 : 0.8
     for (const locale of LOCALES) {
       entries.push({
         url: urlFor(locale, page),
         lastModified,
+        priority,
         alternates: { languages },
       })
     }
@@ -40,6 +43,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       entries.push({
         url: `${SITE_URL}/${locale}/blog/${post.slug}`,
         lastModified: new Date(post.publishedAt),
+        priority: 0.6,
       })
     }
   }
