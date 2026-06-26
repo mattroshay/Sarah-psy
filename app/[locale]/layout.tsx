@@ -52,6 +52,31 @@ const jsonLd = {
       areaServed: ['FR', 'GB', 'US', 'BE', 'CH'],
       knowsLanguage: ['en', 'fr'],
       serviceType: 'Cognitive Behavioral Therapy',
+      openingHours: ['Mo 09:00-16:00', 'Tu 09:00-16:00', 'Th 09:00-16:00', 'Fr 09:00-16:00'],
+      currenciesAccepted: 'EUR',
+      makesOffer: [
+        {
+          '@type': 'Offer',
+          name: 'Individual Session',
+          price: '60',
+          priceCurrency: 'EUR',
+          description: '60-minute individual CBT therapy session',
+        },
+        {
+          '@type': 'Offer',
+          name: '4-Session Package',
+          price: '220',
+          priceCurrency: 'EUR',
+          description: 'Package of 4 CBT therapy sessions',
+        },
+        {
+          '@type': 'Offer',
+          name: '8-Session Package',
+          price: '420',
+          priceCurrency: 'EUR',
+          description: 'Package of 8 CBT therapy sessions',
+        },
+      ],
     },
     {
       '@type': 'WebSite',
