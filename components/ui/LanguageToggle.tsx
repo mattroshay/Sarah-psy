@@ -1,6 +1,6 @@
 'use client'
 
-import { usePathname, useRouter } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 import { getAlternatePath, LOCALE_COOKIE_NAME, type Locale } from '@/lib/routes'
 import { cn } from '@/lib/cn'
 
@@ -14,11 +14,13 @@ const LOCALE_STORAGE_KEY = 'sarah-psy-locale'
 
 export function LanguageToggle({ currentLocale, label, className }: LanguageToggleProps) {
   const pathname = usePathname()
-  const router = useRouter()
+  const alternatePath = getAlternatePath(currentLocale, pathname)
+  const targetLocale: Locale = currentLocale === 'en' ? 'fr' : 'en'
 
-  const handleSwitch = () => {
-    const alternatePath = getAlternatePath(currentLocale, pathname)
-    const targetLocale: Locale = currentLocale === 'en' ? 'fr' : 'en'
+  // Persist the chosen locale, then let the <a href> navigate natively.
+  // We deliberately don't router.push() — rendering the inactive locale as a
+  // real link (not a <button>) keeps the alternate-language page crawlable.
+  const handleCookieAndStorage = () => {
     try {
       localStorage.setItem(LOCALE_STORAGE_KEY, targetLocale)
     } catch {
@@ -26,10 +28,7 @@ export function LanguageToggle({ currentLocale, label, className }: LanguageTogg
     }
     const secure = location.protocol === 'https:' ? '; Secure' : ''
     document.cookie = `${LOCALE_COOKIE_NAME}=${targetLocale}; Path=/; Max-Age=31536000; SameSite=Lax${secure}`
-    router.push(alternatePath)
   }
-
-  const targetLocale: Locale = currentLocale === 'en' ? 'fr' : 'en'
 
   return (
     <div
@@ -39,22 +38,28 @@ export function LanguageToggle({ currentLocale, label, className }: LanguageTogg
     >
       {(['en', 'fr'] as const).map((loc) => {
         const isActive = loc === currentLocale
+        if (isActive) {
+          return (
+            <span
+              key={loc}
+              className={cn('px-3 py-1.5 transition-colors', 'bg-sage text-white cursor-default')}
+              aria-label={`Current language: ${label[loc]}`}
+              aria-current="page"
+            >
+              {loc.toUpperCase()}
+            </span>
+          )
+        }
         return (
-          <button
+          <a
             key={loc}
-            onClick={isActive ? undefined : handleSwitch}
-            disabled={isActive}
-            className={cn(
-              'px-3 py-1.5 transition-colors',
-              isActive
-                ? 'bg-sage text-white cursor-default'
-                : 'text-muted hover:text-charcoal hover:bg-sage-light'
-            )}
-            aria-label={isActive ? `Current language: ${label[loc]}` : `Switch to ${label[loc]}`}
-            aria-pressed={isActive}
+            href={alternatePath}
+            onClick={handleCookieAndStorage}
+            className={cn('px-3 py-1.5 transition-colors', 'text-muted hover:text-charcoal hover:bg-sage-light')}
+            aria-label={`Switch to ${label[loc]}`}
           >
             {loc.toUpperCase()}
-          </button>
+          </a>
         )
       })}
     </div>
