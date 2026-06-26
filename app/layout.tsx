@@ -14,6 +14,11 @@ const jost = Jost({
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'https://sarah-psy.com'),
+  verification: {
+    other: {
+      'msvalidate.01': ['FD9E21D1FDE49EA0929FFF4C7BE21531'],
+    },
+  },
 }
 
 export default async function RootLayout({
@@ -24,7 +29,6 @@ export default async function RootLayout({
   const headersList = await headers()
   const locale = headersList.get('x-locale') ?? 'en'
   const gaId = process.env.NEXT_PUBLIC_GA4_ID
-
   return (
     <html lang={locale} className={jost.variable}>
       <body className="flex flex-col min-h-screen">
